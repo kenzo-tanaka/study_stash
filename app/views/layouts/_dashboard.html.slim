@@ -1,0 +1,3 @@
+= link_to 'スケジュール作成', new_schedule_path, class: 'button is-text'
+h2.title.is-6.has-text-centered 言語ごと学習時間
+= pie_chart current_user.schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min'
