@@ -9,4 +9,5 @@
 #
 
 class StudyLanguage < ApplicationRecord
+  has_one :schedule
 end
