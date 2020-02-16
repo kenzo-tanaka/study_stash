@@ -9,6 +9,7 @@
 #  updated_at :datetime         not null
 #  starttime  :datetime         not null
 #  endtime    :datetime         not null
+#  study_time :integer
 #
 
 require 'test_helper'
