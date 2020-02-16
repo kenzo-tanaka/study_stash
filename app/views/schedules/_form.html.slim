@@ -14,5 +14,11 @@
   .field
     = form.label :memo
     = form.text_area :memo, class: 'textarea'
+  .field
+    = form.label :starttime
+    = form.datetime_field :starttime
+  .field
+    = form.label :endtime
+    = form.datetime_field :endtime
   .actions
     = form.submit class: 'button'
