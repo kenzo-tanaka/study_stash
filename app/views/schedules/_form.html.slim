@@ -15,6 +15,8 @@
     = form.label :memo
     = form.text_area :memo, class: 'textarea'
   .field
+    = form.collection_select :study_language_id, StudyLanguage.all, :id, :name
+  .field
     = form.label :starttime
     = form.datetime_field :starttime
   .field
