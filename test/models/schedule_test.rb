@@ -10,6 +10,7 @@
 #  starttime  :datetime         not null
 #  endtime    :datetime         not null
 #  study_time :integer
+#  user_id    :bigint           not null
 #
 
 require 'test_helper'
