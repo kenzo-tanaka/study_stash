@@ -17,7 +17,7 @@
 FactoryBot.define do
   factory :schedule do
     title { 'MyString' }
-    description { "ABC" }
+    memo { "ABC" }
     starttime { Time.zone.now - 1.hour }
     endtime { Time.zone.now }
     user
