@@ -1,0 +1,13 @@
+p#notice
+  = notice
+p
+  strong
+    | Title:
+  = @schedule.title
+p
+  strong
+    | Memo:
+  = @schedule.memo
+= link_to 'Edit', edit_schedule_path(@schedule)
+|  | 
+= link_to 'Back', schedules_path
