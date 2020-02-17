@@ -63,13 +63,7 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - deploy-to-staging:
-          requires:
-            - build
-          filters:
-            branches:
-              only: staging
-      - deploy-to-master:
+      - deploy-to-production:
           requires:
             - build
           filters:
