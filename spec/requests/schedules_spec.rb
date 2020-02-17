@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Schedules", type: :request do
-  let(:schedule) { create(:schedule) }
   let(:user) { create(:user) }
+  let(:schedule) { create(:schedule, user: user) }
   let(:study_language) { create(:study_language) }
   let(:schedule_params) { attributes_for(:schedule, memo: 'This is Test', user_id: user.id, study_language_id: study_language.id) }
 
