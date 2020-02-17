@@ -1,6 +1,7 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_schedule_owner, only: [:edit, :update, :destory]
   # GET /schedules
   # GET /schedules.json
   def index
@@ -70,5 +71,9 @@ class SchedulesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def schedule_params
       params.require(:schedule).permit(:title, :memo, :starttime, :endtime, :study_language_id)
+    end
+
+    def check_schedule_owner
+      redirect_to root_path, notice: '権限がありません' unless @schedule.user == current_user
     end
 end
