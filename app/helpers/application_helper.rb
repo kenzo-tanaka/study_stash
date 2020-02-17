@@ -3,7 +3,7 @@ module ApplicationHelper
     if user_signed_in?
       link_to 'サインアウト', destroy_user_session_path, method: :delete, class: 'button is-text'
     else
-      link_to 'サインイン', new_user_session_path, class: 'button is-light'
+      link_to 'Githubログイン', user_github_omniauth_authorize_path, class: 'button is-dark is-small'
     end
   end
 end
