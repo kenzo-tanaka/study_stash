@@ -10,6 +10,10 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  provider               :string
+#  uid                    :string
+#  name                   :string
+#  icon                   :string
 #
 
 class User < ApplicationRecord
@@ -29,6 +33,8 @@ class User < ApplicationRecord
                          email: User.dummy_email(auth),
                          provider: auth.provider,
                          uid: auth.uid,
+                         icon: auth.info.image,
+                         name: auth.info.nickname,
                          password: Devise.friendly_token[0, 20])
     user
   end
