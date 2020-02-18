@@ -8,6 +8,13 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 import 'bulma/css/bulma.min.css';
+import $ from "jquery";
+$(document).on("turbolinks:load", function() {
+  $(".navbar-burger").click(function() {
+    $(".navbar-burger").toggleClass("is-active");
+    $(".navbar-menu").toggleClass("is-active");
+  });
+});
 require("chartkick")
 require("chart.js")
 
