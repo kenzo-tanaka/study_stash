@@ -3,3 +3,9 @@
   = image_tag 'top_image01', size: '300x300', class: 'has-margin-top'
   br
   = link_to 'さっそく始める', login_path, class: 'button is-text has-margin-top'
+.has-margin-top.has-text-centered
+  h2.has-text-weight-bold.is-size-5 例えばこんな風に
+  br
+  = pie_chart User.first.schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min', donut: true , colors: ["#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8"]
+  br
+  = area_chart User.first.schedules.group_by_day(:starttime).sum(:study_time), suffix: 'min'
