@@ -18,9 +18,11 @@ $(document).on("turbolinks:load", function() {
 require("chartkick")
 require("chart.js")
 
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
+$(document).on("turbolinks:load", function() {
+  $('.tab li').click(function() {
+    var index = $('.tab li').index(this);
+    $('.tab li').removeClass('active');
+    $(this).addClass('active');
+    $('.area ul').removeClass('show').eq(index).addClass('show');
+  });
+});
