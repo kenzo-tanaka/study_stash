@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  get '/login' => 'users#login'
   resources :schedules
+  get '/dashboard' => 'schedules#dashboard'
+  get '/login' => 'users#login'
   root 'schedules#index'
 end
