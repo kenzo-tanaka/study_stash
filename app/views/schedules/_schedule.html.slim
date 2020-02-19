@@ -3,7 +3,7 @@
     .card-content
       .media
         .media-left
-          = image_tag schedule.user.icon, size: '30x30'
+          = display_user_icon(schedule.user)
         .media-content
           .subtitle.is-6.has-text-weight-bold.is-marginless
             = link_to schedule.title, schedule_path(schedule)

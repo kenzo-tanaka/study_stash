@@ -7,6 +7,14 @@ module ApplicationHelper
     end
   end
 
+  def display_user_icon(user)
+    if user.icon.present?
+      image_tag user.icon, size: '40x40'
+    else
+      image_tag 'user_default_icon', size: '40x40'
+    end
+  end
+
   def default_meta_tags
     {
       site: '今日の積み上げ可視化サービス',

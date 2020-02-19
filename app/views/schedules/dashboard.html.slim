@@ -1,8 +1,12 @@
-= link_to 'スケジュール作成', new_schedule_path, class: 'button is-text'
-- unless @schedules.blank?
-  .has-margin-top
-    h2.title.is-6.has-text-centered 言語ごと学習時間
-    = pie_chart @schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min'
-  .has-margin-top
-    h2.title.is-6.has-text-centered 日別学習時間
-    = area_chart @schedules.group_by_day(:starttime).sum(:study_time), ytitle: '学習合計時間(分)'
+.section.has-text-centered
+  = display_user_icon(current_user)
+  = current_user.name
+  br
+  = link_to '今日の積み上げ登録', new_schedule_path, class: 'button is-primary'
+  - unless @schedules.blank?
+    .has-margin-top
+      h2.title.is-6.has-text-centered 言語ごと学習時間
+      = pie_chart @schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min', donut: true
+    .has-margin-top
+      h2.title.is-6.has-text-centered 日別学習時間
+      = area_chart @schedules.group_by_day(:starttime).sum(:study_time), ytitle: '学習合計時間(分)'

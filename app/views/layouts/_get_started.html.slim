@@ -6,9 +6,9 @@
 .has-margin-top.has-text-centered
   h2.has-text-weight-bold.is-size-5 例えばこんな風に
   br
-  = pie_chart User.first.schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min', donut: true , colors: ["#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8"]
+  = pie_chart User.first.schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min', donut: true
   br
-  = area_chart User.first.schedules.group_by_day(:starttime).sum(:study_time), suffix: 'min', colors: ["#63b598"]
+  = area_chart User.first.schedules.group_by_day(:starttime).sum(:study_time), suffix: 'min'
 .has-text-centered.section
   p.has-text-weight-bold.is-size-5.has-margin-top 小さな努力の積み上げで、見たこともない自分に出会おう。
   = image_tag 'login_image', size: '300x300', class: 'has-margin-top'
@@ -20,7 +20,7 @@
   - @users.each do |user|
     .card.column.is-one-third
       .card-content
-        = pie_chart user.schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min', donut: true , colors: ["#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8"]
+        = pie_chart user.schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min', donut: true
         = image_tag user.icon, size: '30x30'
         p.has-text-weight-bold.is-inline-block
           = user.name
