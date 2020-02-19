@@ -20,7 +20,7 @@ class Schedule < ApplicationRecord
 
   scope :today_studytime_sorted, -> {
     includes(:user, :study_language)
-      .where(created_at: Date.yesterday.beginning_of_day..Date.yesterday.end_of_day)
+      .where(created_at: Date.yesterday.beginning_of_week..Date.today.end_of_week)
       .order(study_time: :desc)
   }
 
