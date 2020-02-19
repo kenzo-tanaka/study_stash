@@ -1,4 +1,7 @@
 p#notice
   = notice
 = render 'layouts/get_started' if user_session.nil?
-= render @schedules if user_signed_in?
+- if user_signed_in?
+  .section.has-text-centered
+    button.button.is-rounded 今日の積み上げランキング
+    = render @schedules

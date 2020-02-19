@@ -7,5 +7,8 @@
         .media-content
           .subtitle.is-6.has-text-weight-bold.is-marginless
             = link_to schedule.title, schedule_path(schedule)
+            span.tag.is-success.is-pulled-right
+              = schedule.study_time
+              | 分積み上げ
           .tag.is-light
             = schedule.study_language.name

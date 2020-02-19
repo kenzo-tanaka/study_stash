@@ -18,6 +18,12 @@ class Schedule < ApplicationRecord
   belongs_to :user
   belongs_to :study_language
 
+  scope :today_studytime_sorted, -> {
+    includes(:user, :study_language)
+      .where(created_at: Date.yesterday.beginning_of_day..Date.yesterday.end_of_day)
+      .order(study_time: :desc)
+  }
+
   validates :title, :starttime, :endtime, presence: :true
   before_save :calc_study_time
   def calc_study_time
