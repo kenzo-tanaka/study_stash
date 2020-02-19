@@ -5,4 +5,4 @@
     = pie_chart current_user.schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min'
   .has-margin-top
     h2.title.is-6.has-text-centered 日別学習時間
-    = area_chart current_user.schedules.group_by_day(:created_at).sum(:study_time), ytitle: '学習合計時間(分)'
+    = area_chart current_user.schedules.group_by_day(:starttime).sum(:study_time), ytitle: '学習合計時間(分)'
