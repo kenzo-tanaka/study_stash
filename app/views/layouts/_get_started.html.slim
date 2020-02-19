@@ -2,10 +2,18 @@
   p.has-text-weight-bold.is-size-5.has-margin-top 毎日の「積み上げ」を可視化しよう。
   = image_tag 'top_image01', size: '300x300', class: 'has-margin-top'
   br
-  = link_to 'さっそく始める', login_path, class: 'button is-text has-margin-top'
+  = link_to 'さっそく始める', login_path, class: 'button is-primary is-focused has-margin-top'
 .has-margin-top.has-text-centered
   h2.has-text-weight-bold.is-size-5 例えばこんな風に
   br
   = pie_chart User.first.schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min', donut: true , colors: ["#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8"]
   br
-  = area_chart User.first.schedules.group_by_day(:starttime).sum(:study_time), suffix: 'min'
+  = area_chart User.first.schedules.group_by_day(:starttime).sum(:study_time), suffix: 'min', colors: ["#63b598"]
+.section
+  .columns.is-multiline
+    = render @schedules
+.has-text-centered
+  p.has-text-weight-bold.is-size-5.has-margin-top 小さな努力の積み上げで、見たこともない自分に出会おう。
+  = image_tag 'login_image', size: '300x300', class: 'has-margin-top'
+  br
+  = link_to 'Githubログイン', user_github_omniauth_authorize_path, class: 'button is-dark has-margin-top'
