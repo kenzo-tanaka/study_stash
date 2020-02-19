@@ -14,3 +14,13 @@
   = image_tag 'login_image', size: '300x300', class: 'has-margin-top'
   br
   = link_to 'Githubログイン', user_github_omniauth_authorize_path, class: 'button is-dark has-margin-top'
+.has-text-centered.section
+  h2.has-text-weight-bold.is-size-5 仲間たちと積み上げよう。
+  .columns.is-multiline
+  - @users.each do |user|
+    .card.column.is-one-third
+      .card-content
+        = pie_chart user.schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min', donut: true , colors: ["#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8"]
+        = image_tag user.icon, size: '30x30'
+        p.has-text-weight-bold.is-inline-block
+          = user.name

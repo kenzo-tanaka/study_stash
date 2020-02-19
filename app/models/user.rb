@@ -24,6 +24,13 @@ class User < ApplicationRecord
 
   has_many :schedules, dependent: :destroy
 
+  scope :having_schedules, lambda {
+    joins(:schedules)
+      .where(schedules: { user_id: User.pluck(:id) })
+      .distinct
+  }
+  # Ex:- scope :active, -> {where(:active => true)}
+
   protected
 
   def self.find_for_oauth(auth)
