@@ -1,4 +1,4 @@
-.column.is-one-third
+.column
   .card
     .card-content
       .media
@@ -6,6 +6,6 @@
           = image_tag schedule.user.icon, size: '30x30'
         .media-content
           .subtitle.is-6.has-text-weight-bold.is-marginless
-            = schedule.title
+            = link_to schedule.title, schedule_path(schedule)
           .tag.is-light
             = schedule.study_language.name

@@ -6,6 +6,7 @@ class SchedulesController < ApplicationController
   # GET /schedules.json
   def index
     @users = User.having_schedules
+    @schedules = Schedule.includes(:user, :study_language)
   end
 
   # GET /schedules/1
