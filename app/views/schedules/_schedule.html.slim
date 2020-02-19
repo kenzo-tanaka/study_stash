@@ -1,0 +1,11 @@
+.column.is-one-third
+  .card
+    .card-content
+      .media
+        .media-left
+          = image_tag schedule.user.icon, size: '30x30'
+        .media-content
+          .subtitle.is-6.has-text-weight-bold.is-marginless
+            = schedule.title
+          .tag.is-light
+            = schedule.study_language.name
