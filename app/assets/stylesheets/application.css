@@ -21,3 +21,17 @@
 .has-padding {
   padding: 30px;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  min-height: 100%!important;
+  margin-bottom: -50px!important;
+}
+
+footer {
+  height: 50px;
+}
