@@ -1,0 +1,12 @@
+.column
+  .card
+    .card-content
+      .media
+        .media-left
+          = display_user_icon(user)
+        .media-content
+          .subtitle.is-6.has-text-weight-bold.is-marginless
+            = user.name
+            span.tag.is-success.is-pulled-right
+              = Schedule.where(user_id: user.id).sum(:study_time)
+              | 分積み上げ

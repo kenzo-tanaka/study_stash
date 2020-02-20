@@ -24,10 +24,11 @@ class User < ApplicationRecord
 
   has_many :schedules, dependent: :destroy
 
-  scope :having_schedules, lambda {
+  scope :most_studies_users, lambda {
     joins(:schedules)
-      .where(schedules: { user_id: User.pluck(:id) })
-      .distinct
+      .where(schedules: {
+        starttime: Date.yesterday.beginning_of_week..Date.today.end_of_week })
+      .order('schedules.study_time desc').uniq
   }
   # Ex:- scope :active, -> {where(:active => true)}
 
