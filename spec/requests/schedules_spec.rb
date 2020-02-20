@@ -28,6 +28,11 @@ RSpec.describe "Schedules", type: :request do
     it { is_expected.to eq 200 }
   end
 
+  describe "GET #dashboard" do
+    subject { get dashboard_path }
+    it { is_expected.to eq 200 }
+  end
+
   describe "PATCH #update" do
     subject { patch schedule_path(schedule), params: { schedule: schedule_params } }
     it '更新されること' do
