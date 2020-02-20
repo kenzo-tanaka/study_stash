@@ -7,12 +7,13 @@ class SchedulesController < ApplicationController
   def index
     range =
     @users = User.having_schedules
-    @schedules = Schedule.today_studytime_sorted
+    @schedules = Schedule.this_week_studytime_sorted
   end
 
   # GET /schedules/1
   # GET /schedules/1.json
   def show
+    @schedules = @schedule.user.schedules
   end
 
   # GET /schedules/new

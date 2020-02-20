@@ -1,9 +1,19 @@
-.section
+.section.has-text-centered
   p#notice
     = notice
-  = pie_chart @schedule.user.schedules.pie_chart_static, suffix: 'min', donut: true
   label.label
-    = @schedule.title
-  p
-    = @schedule.memo
-  = link_to 'Edit', edit_schedule_path(@schedule)
+    = l @schedule.starttime
+    | までの積み上げ状況
+  = pie_chart @schedules.to_this_starttime(@schedule.starttime).pie_chart_static, suffix: 'min', donut: true
+  = area_chart @schedules.to_this_starttime(@schedule.starttime).area_chart_static, suffix: 'min'
+.section
+  label.label
+  .balloon5
+    .faceicon
+      = display_user_icon(@schedule.user)
+    .chatting
+      .says
+        p
+          label.label
+            = @schedule.title
+          = @schedule.memo

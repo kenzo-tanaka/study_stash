@@ -18,7 +18,7 @@ class Schedule < ApplicationRecord
   belongs_to :user
   belongs_to :study_language
 
-  scope :today_studytime_sorted, -> {
+  scope :this_week_studytime_sorted, -> {
     includes(:user, :study_language)
       .where(created_at: Date.yesterday.beginning_of_week..Date.today.end_of_week)
       .order(study_time: :desc)
@@ -30,6 +30,10 @@ class Schedule < ApplicationRecord
 
   scope :area_chart_static, -> {
     group_by_day(:starttime).sum(:study_time)
+  }
+
+  scope :to_this_starttime, -> (this_starttime) {
+    where(["starttime <= ?", this_starttime])
   }
 
   validates :title, :starttime, :endtime, presence: :true
