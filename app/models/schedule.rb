@@ -37,6 +37,7 @@ class Schedule < ApplicationRecord
   }
 
   validates :title, :starttime, :endtime, presence: :true
+
   before_save :calc_study_time
   def calc_study_time
     self.study_time = (endtime - starttime) / 60
