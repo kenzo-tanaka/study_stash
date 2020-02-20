@@ -5,7 +5,6 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    range =
     @users = User.having_schedules
     @schedules = Schedule.this_week_studytime_sorted
   end
