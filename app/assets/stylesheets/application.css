@@ -102,3 +102,35 @@ footer {
   margin: 0;
   padding: 0;
 }
+
+/* カルーセル */
+.scroll-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+.scroll-item {
+  scroll-snap-align: center;
+}
+.scroll-container[data-layoutmethod="flexbox"] {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center; /* vertically align children */
+}
+.scroll-container[data-layoutmethod="flexbox"] .scroll-item {
+  margin-right: 1em;
+  margin-bottom: 3em;
+  flex: 0 0 auto;
+}
+.scroll-container[data-layoutmethod="grid"] {
+  display: grid;
+  grid: auto / auto-flow max-content;
+  grid-gap: 1em;
+  align-items: center; /* vertically align children */
+}
+.scroll-item {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -17,11 +17,12 @@
 .has-text-centered.section
   p.has-text-weight-bold.is-size-5 仲間たちと積み上げよう。
   br
-  .columns.is-multiline.has-margin-top
+  ul.scroll-container data-layoutmethod="flexbox"
     - @users.each do |user|
-      .card.column.is-one-third
-        .card-content
-          = pie_chart user.schedules.pie_chart_static, suffix: 'min', donut: true
-          = display_user_icon(user)
-          p.has-text-weight-bold.is-inline-block
-            = user.name
+      li.scroll-item
+        .card
+          .card-content
+            = pie_chart user.schedules.pie_chart_static, suffix: 'min', donut: true
+            = display_user_icon(user)
+            label.label
+              = user.name
