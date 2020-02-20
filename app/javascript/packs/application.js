@@ -18,6 +18,8 @@ $(document).on("turbolinks:load", function() {
 require("chartkick")
 require("chart.js")
 
+import '@fortawesome/fontawesome-free/js/all'
+
 $(document).on("turbolinks:load", function() {
   $('.tab li').click(function() {
     var index = $('.tab li').index(this);
