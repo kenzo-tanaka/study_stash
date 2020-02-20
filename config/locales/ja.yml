@@ -2,3 +2,10 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d"
+  activerecord:
+    attributes:
+      schedule:
+        title: タイトル
+        memo: メモ
+        starttime: 開始時間
+        endtime: 終了時間
