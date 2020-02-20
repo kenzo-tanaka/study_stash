@@ -6,21 +6,22 @@
 .has-margin-top.has-text-centered
   h2.has-text-weight-bold.is-size-5 例えばこんな風に
   br
-  = pie_chart User.first.schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min', donut: true
+  = pie_chart User.first.schedules.pie_chart_static, suffix: 'min', donut: true
   br
-  = area_chart User.first.schedules.group_by_day(:starttime).sum(:study_time), suffix: 'min'
+  = area_chart User.first.schedules.area_chart_static, suffix: 'min'
 .has-text-centered.section
   p.has-text-weight-bold.is-size-5.has-margin-top 小さな努力の積み上げで、見たこともない自分に出会おう。
   = image_tag 'login_image', size: '300x300', class: 'has-margin-top'
   br
   = link_to 'Githubログイン', user_github_omniauth_authorize_path, class: 'button is-dark has-margin-top'
 .has-text-centered.section
-  h2.has-text-weight-bold.is-size-5 仲間たちと積み上げよう。
-  .columns.is-multiline
-  - @users.each do |user|
-    .card.column.is-one-third
-      .card-content
-        = pie_chart user.schedules.joins(:study_language).group(:name).sum(:study_time), suffix: 'min', donut: true
-        = image_tag user.icon, size: '30x30'
-        p.has-text-weight-bold.is-inline-block
-          = user.name
+  p.has-text-weight-bold.is-size-5 仲間たちと積み上げよう。
+  br
+  .columns.is-multiline.has-margin-top
+    - @users.each do |user|
+      .card.column.is-one-third
+        .card-content
+          = pie_chart user.schedules.pie_chart_static, suffix: 'min', donut: true
+          = display_user_icon(user)
+          p.has-text-weight-bold.is-inline-block
+            = user.name

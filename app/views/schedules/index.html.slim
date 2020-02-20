@@ -14,5 +14,5 @@ p#notice
         = render @schedules
       ul
         h2.has-text-weight-bold.is-size-5 最もよく積みあげられている言語👨‍💻
-        = pie_chart Schedule.joins(:study_language).group(:name).sum(:study_time), suffix: 'min', donut: true , colors: ["#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8"]
+        = pie_chart Schedule.pie_chart_static, suffix: 'min', donut: true , colors: ["#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8"]
 

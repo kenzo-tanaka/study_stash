@@ -24,6 +24,14 @@ class Schedule < ApplicationRecord
       .order(study_time: :desc)
   }
 
+  scope :pie_chart_static, -> {
+    joins(:study_language).group(:name).sum(:study_time)
+  }
+
+  scope :area_chart_static, -> {
+    group_by_day(:starttime).sum(:study_time)
+  }
+
   validates :title, :starttime, :endtime, presence: :true
   before_save :calc_study_time
   def calc_study_time
