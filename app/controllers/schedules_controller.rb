@@ -65,7 +65,8 @@ class SchedulesController < ApplicationController
   end
 
   def dashboard
-    @schedules = current_user.schedules
+    @schedules = current_user.schedules.includes(:study_language)
+    @all_schedules = current_user.schedules.includes(:study_language).order(starttime: :desc)
   end
 
   private
