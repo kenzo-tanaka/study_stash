@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.includes(schedules: :study_language).find(params[:id])
   end
 
   def check_user_session

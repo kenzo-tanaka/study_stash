@@ -1,0 +1,13 @@
+.section.has-text-centered
+  = display_user_icon(@user)
+  label.label
+    = @user.name
+  - unless @user.schedules.blank?
+    .has-margin-top
+      h2.title.is-6.has-text-centered 言語ごと学習時間
+      = pie_chart @user.schedules.pie_chart_static, suffix: 'min', donut: true
+    .has-margin-top
+      h2.title.is-6.has-text-centered 日別学習時間
+      = area_chart @user.schedules.area_chart_static, ytitle: '学習合計時間(分)'
+  h2.has-text-weight-bold.is-size-5 積み上げ履歴
+  = render @user.schedules
