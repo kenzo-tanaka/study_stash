@@ -25,4 +25,4 @@
             = pie_chart user.schedules.pie_chart_static, suffix: 'min', donut: true
             = display_user_icon(user)
             label.label
-              = user.name
+              = link_to user.name, user_path(user)
