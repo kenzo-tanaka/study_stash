@@ -1,7 +1,7 @@
 .section.has-text-centered
   = display_user_icon(current_user)
-  = current_user.name
-  br
+  label.label
+    = current_user.name
   = link_to '今日の積み上げ登録', new_schedule_path, class: 'button is-primary'
   - unless @schedules.blank?
     .has-margin-top
