@@ -3,6 +3,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_from :github
   end
 
+  def twitter
+    callback_from :twitter
+  end
+
+  def google
+    callback_from :google
+  end
+
   def callback_from(provider)
     provider = provider.to_s
     @user = User.find_for_oauth(request.env['omniauth.auth'])

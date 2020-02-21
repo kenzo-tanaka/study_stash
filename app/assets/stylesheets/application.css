@@ -18,7 +18,6 @@
   color: hsl(141, 71%,  48%);
 }
 
-
 .has-margin-top {
   margin-top: 30px;
 }
@@ -39,6 +38,11 @@ html, body {
 .container {
   min-height: 100%!important;
   margin-bottom: 50px!important;
+}
+
+.twitter-button {
+  background-color: rgb(29, 161, 242)!important;
+  color: #fff!important;
 }
 
 footer {
