@@ -33,6 +33,7 @@ gem 'devise'
 gem 'groupdate'
 gem 'omniauth'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'omniauth-twitter'
 gem 'meta-tags'
 
 group :development, :test do
