@@ -40,10 +40,11 @@ class Schedule < ApplicationRecord
   validate :check_start_end_time
 
   def check_start_end_time
+    return if starttime.nil? || endtime.nil?
     errors.add(:starttime, 'は終了時刻よりも未来に設定できません。') if starttime >= endtime
   end
 
-  before_save :calc_study_time
+  after_save :calc_study_time
   def calc_study_time
     self.study_time = (endtime - starttime) / 60
   end

@@ -1,4 +1,7 @@
 ja:
+  errors:
+    messages:
+      blank: 空です!
   time:
     formats:
       default: "%Y/%m/%d"
