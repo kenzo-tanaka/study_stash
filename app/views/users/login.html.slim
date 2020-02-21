@@ -1,10 +1,1 @@
-.has-text-centered.section
-  p.has-text-weight-bold.is-size-6.has-margin-top 小さな努力の積み上げで、見たこともない自分に出会おう。
-  = image_tag 'login_image', size: '300x300', class: 'has-margin-top'
-  br
-  = link_to user_github_omniauth_authorize_path, class: 'button is-dark has-margin-top' do
-    i.fab.fa-github
-    | Githubログイン
-  = link_to user_twitter_omniauth_authorize_path, class: 'button twitter-button has-margin-top has-small-margin-left' do
-    i.fab.fa-twitter
-    | Twitterログイン
+= render 'layouts/login_section'
