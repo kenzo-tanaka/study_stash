@@ -1,7 +1,9 @@
 .section
   .columns
-    .column.is-one-third.has-background-white-ter.side-panel
-      .field
-        / TODO: タグと検索
+    .column.is-one-third.side-panel
+      .field.tags
+        - @tags.each do |tag|
+          spant.tag.has-background-white
+            = link_to tag.name, tag_path(tag)
     .column.has-small-margin-left
       = render @portfolios
