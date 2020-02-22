@@ -1,7 +1,7 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: :show
   def index
-    @portfolios = Portfolio.all
+    @portfolios = Portfolio.includes(:tags)
   end
 
   def show; end
