@@ -69,6 +69,6 @@ class Admin::PortfoliosController < Admin::ApplicationController
 
     # Only allow a list of trusted parameters through.
     def portfolio_params
-      params.require(:portfolio).permit(:title, :description, :url, :ogp_url)
+      params.require(:portfolio).permit(:title, :description, :url, :ogp_url, tag_ids: [])
     end
 end

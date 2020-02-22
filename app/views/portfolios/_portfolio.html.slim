@@ -6,3 +6,7 @@
     = link_to portfolio.title, portfolio.url, class: 'has-text-weight-bold', target: '_blank'
     br
     = portfolio.description
+    .tags.has-small-margin-top
+      - portfolio.tags.each do |tag|
+        span.tag
+          = tag.name

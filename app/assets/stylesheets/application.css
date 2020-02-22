@@ -22,6 +22,10 @@
   margin-top: 30px;
 }
 
+.has-small-margin-top {
+  margin-top: 10px;
+}
+
 .has-padding {
   padding: 30px;
 }
