@@ -1,0 +1,8 @@
+.columns.portfolio
+  .column.has-text-centered
+    = link_to portfolio.url, target: '_blank' do
+      = image_tag portfolio.ogp_url if portfolio.ogp_url.present?
+  .column
+    = link_to portfolio.title, portfolio.url, class: 'has-text-weight-bold', target: '_blank'
+    br
+    = portfolio.description
