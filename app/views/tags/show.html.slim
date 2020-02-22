@@ -1,2 +1,11 @@
-h1 Tags#show
-p Find me in app/views/tags/show.html.slim
+.section
+  .columns
+    .column.is-one-third.side-panel
+      .field
+        label.label
+          = @tag.name
+        - @tags.each do |tag|
+          spant.tag.has-background-white
+            = link_to tag.name, tag_path(tag)
+    .column.has-small-margin-left
+      = render @tag.portfolios
