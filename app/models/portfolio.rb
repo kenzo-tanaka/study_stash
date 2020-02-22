@@ -12,4 +12,23 @@
 #
 
 class Portfolio < ApplicationRecord
+  require 'open-uri'
+  validates :url, presence: :true
+  before_save :get_meta_datas
+
+  def get_meta_datas
+    charset = nil
+    html = open(url) do |f|
+      charset = f.charset
+      f.read
+    end
+    doc = Nokogiri::HTML.parse(html, nil, charset)
+    self.title = get_og_data(doc, '//meta[property="og:site_name"]/@content')
+    self.description = get_og_data(doc, '//meta[property="og:description"]/@content')
+    self.ogp_url = get_og_data(doc, '//meta[property="og:image"]/@content')
+  end
+
+  def get_og_data(doc, xpath)
+    doc.css(xpath).each { |node| node.inner_text }
+  end
 end
