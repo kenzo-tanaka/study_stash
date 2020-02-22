@@ -1,7 +1,8 @@
 .section
   .columns
     .column.is-one-third.side-panel
-      .field.tags
+      .field
+        label.label タグ一覧
         - @tags.each do |tag|
           spant.tag.has-background-white
             = link_to tag.name, tag_path(tag)
