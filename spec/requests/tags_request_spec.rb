@@ -1,12 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Tags", type: :request do
-
-  describe "GET /show" do
-    it "returns http success" do
-      get "/tags/show"
-      expect(response).to have_http_status(:success)
-    end
+  let(:tag) { create(:tag) }
+  describe "GET #show" do
+    subject { get tag_path(tag) }
+    it { is_expected.to eq 200 }
   end
-
 end
