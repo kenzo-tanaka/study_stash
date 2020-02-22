@@ -20,3 +20,8 @@ User.all.each do |user|
 end
 
 User.create!(email: 'admin@gmail.com', password: 123456, role: 'admin', name: 'admin')
+
+tags = %w[Python React Vue Firebase AWS Docker Ruby on Rails PHP Laravel]
+tags.each do |tag|
+  Tag.create!(name: tag)
+end
