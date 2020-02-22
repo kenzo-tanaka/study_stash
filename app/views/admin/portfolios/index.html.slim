@@ -1,19 +1,9 @@
-h1 Listing portfolios
-
-table
-  thead
-    tr
-      th
-      th
-      th
-
-  tbody
-    - @portfolios.each do |portfolio|
-      tr
-        td = link_to 'Show', admin_portfolio_path(portfolio)
-        td = link_to 'Edit', edit_admin_portfolio_path(portfolio)
-        td = link_to 'Destroy', admin_portfolio_path(portfolio), data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Portfolio', new_admin_portfolio_path
+.columns
+  - @portfolios.each do |portfolio|
+    .column.is-one-fifth
+      = image_tag portfolio.ogp_url, size: '200x200' if portfolio.ogp_url.present?
+    .column
+      = link_to portfolio.title, edit_admin_portfolio_path(portfolio)
+      br
+      = link_to 'Destroy', admin_portfolio_path(portfolio), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button is-text'
+= link_to 'New Portfolio', new_admin_portfolio_path, class: 'button'
