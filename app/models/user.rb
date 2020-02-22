@@ -14,11 +14,11 @@
 #  uid                    :string
 #  name                   :string
 #  icon                   :string
+#  role                   :integer          default(0)
 #
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  enum role: { normal: 1, admin: 2 }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
@@ -30,7 +30,6 @@ class User < ApplicationRecord
         starttime: Date.yesterday.beginning_of_week..Date.today.end_of_week })
       .order('schedules.study_time desc').uniq
   }
-  # Ex:- scope :active, -> {where(:active => true)}
 
   protected
 

@@ -14,6 +14,7 @@
 #  uid                    :string
 #  name                   :string
 #  icon                   :string
+#  role                   :integer          default(0)
 #
 
 FactoryBot.define do
