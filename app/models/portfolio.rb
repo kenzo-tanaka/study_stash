@@ -13,6 +13,8 @@
 
 class Portfolio < ApplicationRecord
   require 'open-uri'
+  has_many :portfolio_tags
+  has_many :tags, through: :portfolio_tags
   validates :url, presence: :true
   validates :url, format: { with: /\A#{URI.regexp(%w[http https])}\z/ }
   before_save :get_meta_datas
