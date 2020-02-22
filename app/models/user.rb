@@ -14,7 +14,7 @@
 #  uid                    :string
 #  name                   :string
 #  icon                   :string
-#  role                   :integer          default(0)
+#  role                   :integer          default(NULL)
 #
 
 class User < ApplicationRecord
