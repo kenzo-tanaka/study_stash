@@ -28,7 +28,7 @@ class Admin::PortfoliosController < Admin::ApplicationController
 
     respond_to do |format|
       if @portfolio.save
-        format.html { redirect_to @portfolio, notice: 'Portfolio was successfully created.' }
+        format.html { redirect_to admin_portfolios_path, notice: 'Portfolio was successfully created.' }
         format.json { render :show, status: :created, location: @portfolio }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::PortfoliosController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @portfolio.update(portfolio_params)
-        format.html { redirect_to @portfolio, notice: 'Portfolio was successfully updated.' }
+        format.html { redirect_to admin_portfolios_path, notice: 'Portfolio was successfully updated.' }
         format.json { render :show, status: :ok, location: @portfolio }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class Admin::PortfoliosController < Admin::ApplicationController
 
     # Only allow a list of trusted parameters through.
     def portfolio_params
-      params.fetch(:portfolio, {})
+      params.require(:portfolio).permit(:title, :description, :url, :ogp_url)
     end
 end

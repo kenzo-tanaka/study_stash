@@ -10,10 +10,10 @@ table
   tbody
     - @portfolios.each do |portfolio|
       tr
-        td = link_to 'Show', portfolio
-        td = link_to 'Edit', edit_portfolio_path(portfolio)
-        td = link_to 'Destroy', portfolio, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Show', admin_portfolio_path(portfolio)
+        td = link_to 'Edit', edit_admin_portfolio_path(portfolio)
+        td = link_to 'Destroy', admin_portfolio_path(portfolio), data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'New Portfolio', new_portfolio_path
+= link_to 'New Portfolio', new_admin_portfolio_path
