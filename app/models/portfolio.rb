@@ -26,7 +26,7 @@ class Portfolio < ApplicationRecord
       f.read
     end
     doc = Nokogiri::HTML.parse(html, nil, charset)
-    self.title = get_og_data(doc, '//meta[property="og:site_name"]/@content')
+    self.title = doc.title
     self.description = get_og_data(doc, '//meta[property="og:description"]/@content')
     self.ogp_url = get_og_data(doc, '//meta[property="og:image"]/@content')
   end
