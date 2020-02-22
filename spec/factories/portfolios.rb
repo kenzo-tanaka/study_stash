@@ -15,7 +15,7 @@ FactoryBot.define do
   factory :portfolio do
     title { "MyString" }
     description { "MyText" }
-    url { "MyString" }
+    url { "https://www.doya.life/" }
     ogp_url { "MyString" }
   end
 end
