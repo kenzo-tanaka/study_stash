@@ -6,15 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# names = %w[Python Ruby PHP HTML Go Java Scala]
-# names.each do |name|
-#   StudyLanguage.create!(name: name)
-# end
+names = %w[Python Ruby PHP HTML Go Java Scala]
+names.each do |name|
+  StudyLanguage.create!(name: name)
+end
 
-# 10.times.each do |n|
-#   User.create(email: "#{n}@gmail.com", password: "password", name: "Sample 00#{n}")
-# end
+10.times.each do |n|
+  User.create(email: "#{n}@gmail.com", password: "password", name: "Sample 00#{n}")
+end
 
 User.all.each do |user|
   user.schedules.create!(title: "Sample schedule created by #{user.name}", starttime: Time.zone.now - 1.hour, endtime: Time.zone.now, study_language_id: 1)
 end
+
+User.create!(email: 'admin@gmail.com', password: 123456, role: 'admin', name: 'admin')

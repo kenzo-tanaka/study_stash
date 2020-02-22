@@ -14,11 +14,16 @@
 #  uid                    :string
 #  name                   :string
 #  icon                   :string
+#  role                   :integer          default(0)
 #
 
 FactoryBot.define do
   factory :user do
     sequence(:email) { |n| "sample#{n}@gmail.com" }
     password { 'password' }
+
+    trait :admin do
+      role { 'admin' }
+    end
   end
 end
