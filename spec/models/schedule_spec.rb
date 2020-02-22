@@ -25,4 +25,12 @@ RSpec.describe Schedule, type: :model do
       expect(schedule.errors[:starttime]).to include('は終了時刻よりも未来に設定できません。')
     end
   end
+
+  describe "calc_study_time" do
+    let(:schedule) { build(:schedule, starttime: Time.zone.now - 1.hour , endtime: Time.zone.now) }
+    it '学習時間を計測できること' do
+      schedule.save!
+      expect(schedule.study_time).to eq 60
+    end
+  end
 end
