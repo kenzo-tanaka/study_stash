@@ -75,6 +75,8 @@ footer {
 
 .side-panel {
   border-radius: 4px;
+  background-color: #fafafa;
+  height: 100%;
 }
 
 /* schedules#show */

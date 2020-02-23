@@ -2,9 +2,10 @@
   .columns
     .column.is-one-third.side-panel
       .field
-        label.label タグ一覧
+        label.label
+          = @tag.name
         - @tags.each do |tag|
           spant.tag.has-background-white
             = link_to tag.name, tag_path(tag)
     .column.has-small-margin-left
-      = render @portfolios
+      = render @tag.portfolios

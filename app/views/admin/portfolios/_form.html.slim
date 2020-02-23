@@ -1,4 +1,6 @@
 = form_for [:admin, @portfolio] do |f|
   = f.text_field :url, class: 'input', placeholder: 'https://..'
+  = f.text_field :ogp_url, class: 'input', placeholder: 'https://ogp..'
+  = f.text_area :description, class: 'textarea'
   = f.collection_check_boxes :tag_ids, Tag.all, :id, :name
   .actions = f.submit

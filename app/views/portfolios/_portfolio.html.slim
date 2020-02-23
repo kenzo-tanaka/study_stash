@@ -9,4 +9,4 @@
     .tags.has-small-margin-top
       - portfolio.tags.each do |tag|
         span.tag
-          = tag.name
+          = link_to tag.name, tag_path(tag)

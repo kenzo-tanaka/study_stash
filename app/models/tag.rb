@@ -12,4 +12,8 @@
 class Tag < ApplicationRecord
   has_many :portfolio_tags
   has_many :portfolios, through: :portfolio_tags
+
+  scope :has_portfolios, lambda {
+    joins(:portfolios)
+  }
 end
