@@ -15,5 +15,6 @@ class Tag < ApplicationRecord
 
   scope :has_portfolios, lambda {
     joins(:portfolios)
+    .distinct
   }
 end
