@@ -15,7 +15,7 @@ class Portfolio < ApplicationRecord
   require 'open-uri'
   has_many :portfolio_tags, dependent: :destroy
   has_many :tags, through: :portfolio_tags
-  has_many :related_links
+  has_many :related_links, dependent: :destroy
   accepts_nested_attributes_for :related_links, allow_destroy: true
   validates :url, presence: :true
   validates :url, format: { with: /\A#{URI.regexp(%w[http https])}\z/ }
