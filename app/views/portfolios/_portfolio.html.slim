@@ -10,8 +10,9 @@
       - portfolio.tags.each do |tag|
         span.tag
           = link_to tag.name, tag_path(tag)
-    - portfolio.related_links.each do |link|
-      = link_to link.url, target: '_blank', class: 'is-size-7' do
+    - portfolio.related_links.each_with_index do |link, index|
+      = link_to link.url, target: '_blank', class: 'is-size-7 has-small-padding' do
         = link.title
-        i.fas.fa-external-link-alt
-      br
+      - unless index == portfolio.related_links.size - 1
+        span.has-text-grey-lighter
+          | /
