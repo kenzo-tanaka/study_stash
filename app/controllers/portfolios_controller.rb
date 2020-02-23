@@ -1,7 +1,7 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: :show
   def index
-    @portfolios = Portfolio.includes(:tags)
+    @portfolios = Portfolio.includes(:tags, :related_links)
     @tags = Tag.has_portfolios
   end
 

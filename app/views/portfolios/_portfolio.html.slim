@@ -4,9 +4,15 @@
       = image_tag portfolio.ogp_url if portfolio.ogp_url.present?
   .column
     = link_to portfolio.title, portfolio.url, class: 'has-text-weight-bold', target: '_blank'
-    br
-    = portfolio.description
+    p.is-size-7
+      = portfolio.description
     .tags.has-small-margin-top
       - portfolio.tags.each do |tag|
         span.tag
           = link_to tag.name, tag_path(tag)
+    - portfolio.related_links.each_with_index do |link, index|
+      = link_to link.url, target: '_blank', class: 'is-size-7 has-small-padding' do
+        = link.title
+      - unless index == portfolio.related_links.size - 1
+        span.has-text-grey-lighter
+          | /

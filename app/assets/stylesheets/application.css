@@ -30,6 +30,10 @@
   padding: 30px;
 }
 
+.has-small-padding {
+  padding: 3px;
+}
+
 .has-small-margin-left {
   margin-left: 10px;
 }

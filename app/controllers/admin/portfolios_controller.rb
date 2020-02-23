@@ -15,6 +15,7 @@ class Admin::PortfoliosController < Admin::ApplicationController
   # GET /portfolios/new
   def new
     @portfolio = Portfolio.new
+    @portfolio.related_links.build
   end
 
   # GET /portfolios/1/edit
@@ -69,6 +70,12 @@ class Admin::PortfoliosController < Admin::ApplicationController
 
     # Only allow a list of trusted parameters through.
     def portfolio_params
-      params.require(:portfolio).permit(:title, :description, :url, :ogp_url, tag_ids: [])
+      params.require(:portfolio).permit(
+        :title,
+        :description,
+        :url,
+        :ogp_url,
+        related_links_attributes: [:id, :title, :url],
+        tag_ids: [])
     end
 end
