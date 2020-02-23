@@ -4,7 +4,7 @@
       .field
         label.label タグ一覧
         - @tags.each do |tag|
-          spant.tag.has-background-white
+          span.tag.has-background-white
             = link_to tag.name, tag_path(tag)
     .column.has-small-margin-left
       = render @portfolios
