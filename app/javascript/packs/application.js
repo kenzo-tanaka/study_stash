@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require('jquery')
 import 'bulma/css/bulma.min.css';
 import $ from "jquery";
 import 'cocoon';

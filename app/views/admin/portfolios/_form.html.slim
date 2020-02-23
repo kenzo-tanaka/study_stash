@@ -4,9 +4,8 @@
   = f.text_area :description, class: 'textarea'
   = f.collection_check_boxes :tag_ids, Tag.all, :id, :name
   br
-  = f.fields_for :related_links do |related_links_form|
-    = related_links_form.label :title
-    = related_links_form.text_field :title, class: 'input'
-    = related_links_form.label :url
-    = related_links_form.text_field :url, class: 'input'
+  = f.fields_for :related_links do |related_link|
+    = render 'related_link_fields', f: related_link
+  .links
+    = link_to_add_association 'add task', f, :related_links
   .actions = f.submit
