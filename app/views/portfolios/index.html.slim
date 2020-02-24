@@ -3,8 +3,9 @@
     .column.is-one-third.side-panel
       .field
         label.label タグ一覧
-        - @tags.each do |tag|
-          span.tag.has-background-white
-            = link_to tag.name, tag_path(tag)
+        .tags
+          - @tags.each do |tag|
+            span.tag.has-background-white
+              = link_to tag.name, tag_path(tag)
     .column.has-small-margin-left
       = render @portfolios
