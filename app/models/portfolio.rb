@@ -19,6 +19,7 @@ class Portfolio < ApplicationRecord
   accepts_nested_attributes_for :related_links, allow_destroy: true
   validates :url, presence: :true
   validates :url, format: { with: /\A#{URI.regexp(%w[http https])}\z/ }
+  validates :ogp_url, format: { with: /\A#{URI.regexp(%w[http https])}\z/ }
   before_save :get_meta_datas
 
   def get_meta_datas
