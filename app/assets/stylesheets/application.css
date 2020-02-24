@@ -38,6 +38,10 @@
   margin-left: 10px;
 }
 
+.no-shadow {
+  box-shadow: 0 0 0!important;
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -137,7 +141,6 @@ footer {
 .scroll-container[data-layoutmethod="flexbox"] {
   display: flex;
   flex-wrap: nowrap;
-  align-items: center; /* vertically align children */
 }
 .scroll-container[data-layoutmethod="flexbox"] .scroll-item {
   margin-right: 1em;
