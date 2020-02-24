@@ -6,8 +6,7 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @tags = @portfolio.tags.includes(:portfolios)
-    @related_links = @portfolio.related_links
+    @tags = @portfolio.tags.includes(portfolios: [:related_links, :portfolio_tags, :tags])
     @related_portfolios = @tags.flat_map(&:portfolios).reject { |portfolio| portfolio == @portfolio }
   end
 
