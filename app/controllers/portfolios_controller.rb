@@ -5,6 +5,8 @@ class PortfoliosController < ApplicationController
     @tags = Tag.has_portfolios
   end
 
+  def show; end
+
   private
 
   def set_portfolio
