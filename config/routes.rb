@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :tags, only: :show
-  resources :portfolios, only: [:index, :show]
+  resources :portfolios, only: :show
   namespace :admin do
     resources :portfolios
   end
