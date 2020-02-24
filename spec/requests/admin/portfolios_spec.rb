@@ -12,11 +12,6 @@ RSpec.describe "Admin::Portfolios", type: :request do
     it { is_expected.to eq 200 }
   end
 
-  describe "GET #show" do
-    subject { get admin_portfolio_path(portfolio) }
-    it { is_expected.to eq 200 }
-  end
-
   describe "GET #edit" do
     subject { get edit_admin_portfolio_path(portfolio) }
     it { is_expected.to eq 200 }
