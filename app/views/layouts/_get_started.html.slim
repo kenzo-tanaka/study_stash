@@ -23,6 +23,19 @@
             span.tag
               = link_to tag.name, tag_path(tag)
   = link_to '全てのポートフォリオを見る', portfolios_path
+.section
+  .has-margin-top.has-text-centered
+    h2.has-text-weight-bold.is-size-5
+      = Settings.service.book_tagline
+  br
+  .columns.is-multiline
+    - @books.all.each do |book|
+      .column.is-one-quarter
+        = link_to book.url, target: '_blank' do
+          = image_tag book.image_url
+        label.is-size-7.label
+          = book.title
+
 .section.has-margin-top.has-text-centered
   h2.has-text-weight-bold.is-size-5
     = Settings.service.study_time_tagline

@@ -8,6 +8,7 @@ class SchedulesController < ApplicationController
     @users = User.most_studies_users
     @schedules = Schedule.this_week_studytime_sorted
     @portfolios = Portfolio.includes(:tags).limit(6)
+    @books = Book.all
   end
 
   # GET /schedules/1
