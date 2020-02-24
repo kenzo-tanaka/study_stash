@@ -1,5 +1,6 @@
 .has-text-centered.section
-  p.has-text-weight-bold.is-size-5.has-margin-top 小さな努力の積み上げで、見たこともない自分に出会おう。
+  p.has-text-weight-bold.is-size-5.has-margin-top
+    = Settings.service.welcome_tagline
   = image_tag 'login_image', size: '300x300', class: 'has-margin-top'
   br
   = link_to user_github_omniauth_authorize_path, class: 'button is-dark has-margin-top' do
