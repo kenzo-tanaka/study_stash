@@ -7,11 +7,6 @@ class Admin::PortfoliosController < Admin::ApplicationController
     @portfolios = Portfolio.includes(:tags)
   end
 
-  # GET /portfolios/1
-  # GET /portfolios/1.json
-  def show
-  end
-
   # GET /portfolios/new
   def new
     @portfolio = Portfolio.new

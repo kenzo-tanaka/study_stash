@@ -1,3 +1,5 @@
+- set_meta_tags title: "#{@tag.name}のポートフォリオ集"
+- set_meta_tags og: { image: @tag.ogp_url } if @tag.ogp_url.present?
 .section
   .columns
     .column.is-one-third.side-panel
