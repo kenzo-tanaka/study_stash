@@ -12,7 +12,7 @@
 #
 
 class Book < ApplicationRecord
-  validaets :title, presence: true
+  validates :title, presence: true
   validates :url, format: { with: /\A#{URI.regexp(%w[http https])}\z/ }
   validates :image_url, format: { with: /\A#{URI.regexp(%w[http https])}\z/ }
 end
