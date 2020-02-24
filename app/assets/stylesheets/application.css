@@ -154,8 +154,8 @@ footer {
   align-items: center; /* vertically align children */
 }
 .scroll-item {
-  width: 300px;
-  max-width: 300px;
+  width: 275px;
+  max-width: 275px;
   height: 100%;
   display: flex;
   justify-content: center;

@@ -15,7 +15,7 @@
         = link_to portfolio.url, target: '_blank' do
           = image_tag portfolio.ogp_url
         label.is-size-7.label
-          = portfolio.title
+          = link_to portfolio.title, portfolio.url
         p.is-size-7
           = portfolio.description
         .tags.has-small-margin-top
