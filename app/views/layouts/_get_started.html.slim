@@ -27,14 +27,14 @@
   .has-margin-top.has-text-centered
     h2.has-text-weight-bold.is-size-5
       = Settings.service.book_tagline
-  br
-  .columns.is-multiline
-    - @books.all.each do |book|
-      .column.is-one-quarter
-        = link_to book.url, target: '_blank' do
-          = image_tag book.image_url
-        label.is-size-7.label
-          = book.title
+  ul.scroll-container data-layoutmethod="flexbox"
+    - @books.each do |book|
+      li.scroll-item
+        .card.no-shadow
+          .card-content
+            = image_tag book.image_url
+            label.label
+              = link_to book.title, book.url, target: '_blank'
 
 .section.has-margin-top.has-text-centered
   h2.has-text-weight-bold.is-size-5
