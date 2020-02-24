@@ -6,7 +6,8 @@
   = link_to 'さっそく始める', login_path, class: 'button is-primary is-focused has-margin-top'
 .section
   .has-margin-top.has-text-centered
-    h2.has-text-weight-bold.is-size-5 みんなのポートフォリオを覗いてみてみよう
+    h2.has-text-weight-bold.is-size-5
+      = Settings.service.portfolio_tagline
   .columns.is-multiline
     - @portfolios.each do |portfolio|
       .column.is-one-third
@@ -21,9 +22,9 @@
             span.tag
               = link_to tag.name, tag_path(tag)
   = link_to '全てのポートフォリオを見る', portfolios_path
-
 .has-margin-top.has-text-centered
-  h2.has-text-weight-bold.is-size-5 例えばこんな風に
+  h2.has-text-weight-bold.is-size-5
+    = Settings.service.study_time_tagline
   ul.scroll-container data-layoutmethod="flexbox"
     - @users.each do |user|
       li.scroll-item
