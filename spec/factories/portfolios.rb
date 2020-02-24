@@ -16,6 +16,6 @@ FactoryBot.define do
     title { "MyString" }
     description { "MyText" }
     url { "https://www.doya.life/" }
-    ogp_url { "MyString" }
+    ogp_url { "https://www.doya.life/" }
   end
 end
