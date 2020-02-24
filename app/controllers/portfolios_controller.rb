@@ -5,11 +5,15 @@ class PortfoliosController < ApplicationController
     @tags = Tag.has_portfolios
   end
 
-  def show; end
+  def show
+    @tags = @portfolio.tags.includes(:portfolios)
+    @related_links = @portfolio.related_links
+    @related_portfolios = @tags.flat_map(&:portfolios).reject { |portfolio| portfolio == @portfolio }
+  end
 
   private
 
   def set_portfolio
-    @portfolio = Portfolio.find(params[:id])
+    @portfolio = Portfolio.includes(:tags, :related_links).find(params[:id])
   end
 end

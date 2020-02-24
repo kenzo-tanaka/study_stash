@@ -13,7 +13,7 @@
       label.label
         = @portfolio.title
       .tags.is-marginless
-        - @portfolio.tags.each do |tag|
+        - @tags.each do |tag|
           span.tag
             = link_to tag.name, tag_path(tag)
       p.is-size-7
@@ -23,10 +23,12 @@
         i.fas.fa-globe
         | サイトを見る
       label.label.has-margin-top 関連リンク
-      - @portfolio.related_links.each_with_index do |link, index|
+      - @related_links.each_with_index do |link, index|
         = link_to link.url, target: '_blank', class: 'is-size-7 has-small-padding' do
           = link.title
         - unless index == @portfolio.related_links.size - 1
           span.has-text-grey-lighter
             | /
-    .column
+    .column.side-panel
+      label.label 関連ポートフォリオ
+      = render @related_portfolios
