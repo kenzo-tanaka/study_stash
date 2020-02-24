@@ -1,0 +1,32 @@
+.section
+  nav.breadcrumb
+    ul.is-size-7
+      li
+        = link_to 'トップ', root_path
+      li
+        = link_to 'ポートフォリオ一覧', portfolios_path
+      li
+        = link_to @portfolio.title, portfolio_path(@portfolio)
+  .columns
+    .column.is-two-thirds
+      = image_tag @portfolio.ogp_url
+      label.label
+        = @portfolio.title
+      .tags.is-marginless
+        - @portfolio.tags.each do |tag|
+          span.tag
+            = link_to tag.name, tag_path(tag)
+      p.is-size-7
+        = @portfolio.description
+      br
+      = link_to @portfolio.url, target: '_blank', class: 'button is-link is-light' do
+        i.fas.fa-globe
+        | サイトを見る
+      label.label.has-margin-top 関連リンク
+      - @portfolio.related_links.each_with_index do |link, index|
+        = link_to link.url, target: '_blank', class: 'is-size-7 has-small-padding' do
+          = link.title
+        - unless index == @portfolio.related_links.size - 1
+          span.has-text-grey-lighter
+            | /
+    .column
