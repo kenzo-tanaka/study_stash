@@ -4,16 +4,26 @@
   = image_tag 'top_image01', size: '300x300', class: 'has-margin-top'
   br
   = link_to 'さっそく始める', login_path, class: 'button is-primary is-focused has-margin-top'
+.section
+  .has-margin-top.has-text-centered
+    h2.has-text-weight-bold.is-size-5 みんなのポートフォリオを覗いてみてみよう
+  .columns.is-multiline
+    - @portfolios.each do |portfolio|
+      .column.is-one-third
+        = link_to portfolio.url, target: '_blank' do
+          = image_tag portfolio.ogp_url
+        label.is-size-7.label
+          = portfolio.title
+        p.is-size-7
+          = portfolio.description
+        .tags.has-small-margin-top
+          - portfolio.tags.each do |tag|
+            span.tag
+              = link_to tag.name, tag_path(tag)
+  = link_to '全てのポートフォリオを見る', portfolios_path
+
 .has-margin-top.has-text-centered
   h2.has-text-weight-bold.is-size-5 例えばこんな風に
-  br
-  = pie_chart User.first.schedules.pie_chart_static, suffix: 'min', donut: true
-  br
-  = area_chart User.first.schedules.area_chart_static, suffix: 'min'
-= render 'layouts/login_section'
-.has-text-centered.section
-  p.has-text-weight-bold.is-size-5 仲間たちと積み上げよう。
-  br
   ul.scroll-container data-layoutmethod="flexbox"
     - @users.each do |user|
       li.scroll-item
@@ -23,3 +33,4 @@
             = display_user_icon(user)
             label.label
               = link_to user.name, user_path(user)
+  = render 'layouts/login_section'

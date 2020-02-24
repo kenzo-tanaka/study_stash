@@ -7,6 +7,7 @@ class SchedulesController < ApplicationController
   def index
     @users = User.most_studies_users
     @schedules = Schedule.this_week_studytime_sorted
+    @portfolios = Portfolio.includes(:tags)
   end
 
   # GET /schedules/1
