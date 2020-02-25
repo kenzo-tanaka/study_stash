@@ -23,6 +23,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable
 
   has_many :schedules, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   scope :most_studies_users, lambda {
     joins(:schedules)
