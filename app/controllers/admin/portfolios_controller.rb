@@ -4,7 +4,7 @@ class Admin::PortfoliosController < Admin::ApplicationController
   # GET /portfolios
   # GET /portfolios.json
   def index
-    @portfolios = Portfolio.includes(:tags)
+    @portfolios = Portfolio.includes(:tags).latest
   end
 
   # GET /portfolios/new
