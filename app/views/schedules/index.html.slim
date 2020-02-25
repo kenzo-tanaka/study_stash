@@ -1,18 +1,16 @@
 p#notice
   = notice
-= render 'layouts/get_started' if user_session.nil?
-- if user_signed_in?
-  .section.has-text-centered
-    ul.tab
-      li.active
-        button.button.is-rounded TOP
-      li
-        button.button.is-rounded 人気
-    .area.has-margin-top
-      ul.show
-        h2.has-text-weight-bold.is-size-5 今週最も積み上げた人たち👏
-        = render @users
-      ul
-        h2.has-text-weight-bold.is-size-5 最もよく積みあげられている言語👨‍💻
-        = pie_chart Schedule.pie_chart_static, suffix: 'min', donut: true , colors: ["#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8"]
+.section.has-text-centered
+  ul.tab
+    li.active
+      button.button.is-rounded TOP
+    li
+      button.button.is-rounded 人気
+  .area.has-margin-top
+    ul.show
+      h2.has-text-weight-bold.is-size-5 今週最も積み上げた人たち👏
+      = render @users
+    ul
+      h2.has-text-weight-bold.is-size-5 最もよく積みあげられている言語👨‍💻
+      = pie_chart Schedule.pie_chart_static, suffix: 'min', donut: true , colors: ["#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8"]
 
