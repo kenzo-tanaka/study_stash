@@ -1,52 +1,53 @@
-.section.has-text-centered
+.has-text-centered
   p.has-text-weight-bold.is-size-5.has-margin-top
     = Settings.service.concept
   = image_tag 'top_image01', size: '300x300', class: 'has-margin-top'
   br
   = link_to 'さっそく始める', login_path, class: 'button is-primary is-focused has-margin-top'
-.section
-  .has-margin-top.has-text-centered
-    h2.has-text-weight-bold.is-size-5
-      = Settings.service.portfolio_tagline
-  br
-  .columns.is-multiline
-    - @portfolios.each do |portfolio|
-      .column.is-one-third
-        = link_to portfolio_path(portfolio) do
-          = image_tag portfolio.ogp_url
-        label.is-size-7.label
-          = link_to portfolio.title, portfolio_path(portfolio)
-        p.is-size-7
-          = portfolio.description
-        .tags.has-small-margin-top
-          - portfolio.tags.each do |tag|
-            span.tag
-              = link_to tag.name, tag_path(tag)
-  = link_to '全てのポートフォリオを見る', portfolios_path
-.section
-  .has-margin-top.has-text-centered
-    h2.has-text-weight-bold.is-size-5
-      = Settings.service.book_tagline
-  ul.scroll-container data-layoutmethod="flexbox"
-    - @books.each do |book|
-      li.scroll-item
-        .card.no-shadow
-          .card-content
-            = image_tag book.image_url
-            label.label
-              = link_to book.title, book.url, target: '_blank'
+.container
+  .section
+    .has-margin-top.has-text-centered
+      h2.has-text-weight-bold.is-size-5
+        = Settings.service.portfolio_tagline
+    br
+    .columns.is-multiline
+      - @portfolios.each do |portfolio|
+        .column.is-one-third
+          = link_to portfolio_path(portfolio) do
+            = image_tag portfolio.ogp_url
+          label.is-size-7.label
+            = link_to portfolio.title, portfolio_path(portfolio)
+          p.is-size-7
+            = portfolio.description
+          .tags.has-small-margin-top
+            - portfolio.tags.each do |tag|
+              span.tag
+                = link_to tag.name, tag_path(tag)
+    = link_to '全てのポートフォリオを見る', portfolios_path
+  .section
+    .has-margin-top.has-text-centered
+      h2.has-text-weight-bold.is-size-5
+        = Settings.service.book_tagline
+    ul.scroll-container data-layoutmethod="flexbox"
+      - @books.each do |book|
+        li.scroll-item
+          .card.no-shadow
+            .card-content
+              = image_tag book.image_url
+              label.label
+                = link_to book.title, book.url, target: '_blank'
 
-.section.has-margin-top.has-text-centered
-  h2.has-text-weight-bold.is-size-5
-    = Settings.service.study_time_tagline
-  br
-  ul.scroll-container data-layoutmethod="flexbox"
-    - @users.each do |user|
-      li.scroll-item
-        .card
-          .card-content
-            = pie_chart user.schedules.pie_chart_static, suffix: 'min', donut: true
-            = display_user_icon(user)
-            label.label
-              = link_to user.name, user_path(user)
-  = render 'layouts/login_section'
+  .section.has-margin-top.has-text-centered
+    h2.has-text-weight-bold.is-size-5
+      = Settings.service.study_time_tagline
+    br
+    ul.scroll-container data-layoutmethod="flexbox"
+      - @users.each do |user|
+        li.scroll-item
+          .card
+            .card-content
+              = pie_chart user.schedules.pie_chart_static, suffix: 'min', donut: true
+              = display_user_icon(user)
+              label.label
+                = link_to user.name, user_path(user)
+    = render 'layouts/login_section'

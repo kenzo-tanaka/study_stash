@@ -1,15 +1,16 @@
 nav.navbar.is-spaced
-  .navbar-brand
-    = link_to root_path, class: 'navbar-item' do
-      = image_tag "logo"
-    a.navbar-burger.burger[role="button" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"]
-      span[aria-hidden="true"]
-      span[aria-hidden="true"]
-      span[aria-hidden="true"]
-  .navbar-menu
-    .navbar-end
-      .navbar-item
-        .buttons
-          = link_to 'エンジニアのポートフォリオ', portfolios_path, class: 'button is-text'
-          = link_to 'ダッシュボード', dashboard_path, class: 'button is-text' if user_signed_in?
-          = display_session_path
+  .container
+    .navbar-brand
+      = link_to root_path, class: 'navbar-item' do
+        = image_tag "logo"
+      a.navbar-burger.burger[role="button" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"]
+        span[aria-hidden="true"]
+        span[aria-hidden="true"]
+        span[aria-hidden="true"]
+    .navbar-menu
+      .navbar-end
+        .navbar-item
+          .buttons
+            = link_to 'エンジニアのポートフォリオ', portfolios_path, class: 'button is-text'
+            = link_to 'ダッシュボード', dashboard_path, class: 'button is-text' if user_signed_in?
+            = display_session_path
