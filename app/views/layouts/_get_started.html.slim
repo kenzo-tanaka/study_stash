@@ -12,10 +12,10 @@
   .columns.is-multiline
     - @portfolios.each do |portfolio|
       .column.is-one-third
-        = link_to portfolio.url, target: '_blank' do
+        = link_to portfolio_path(portfolio) do
           = image_tag portfolio.ogp_url
         label.is-size-7.label
-          = link_to portfolio.title, portfolio.url
+          = link_to portfolio.title, portfolio_path(portfolio)
         p.is-size-7
           = portfolio.description
         .tags.has-small-margin-top
