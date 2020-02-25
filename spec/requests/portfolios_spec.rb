@@ -7,4 +7,9 @@ RSpec.describe "Portfolios", type: :request do
     subject { get portfolios_path }
     it { is_expected.to eq 200 }
   end
+
+  describe "GET #show" do
+    subject { get portfolio_path(portfolio) }
+    it { is_expected.to eq 200 }
+  end
 end
