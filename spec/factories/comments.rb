@@ -13,7 +13,7 @@
 
 FactoryBot.define do
   factory :comment do
-    user { nil }
     content { "MyText" }
+    user
   end
 end
