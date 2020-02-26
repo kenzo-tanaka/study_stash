@@ -31,8 +31,8 @@
         - unless index == @portfolio.related_links.size - 1
           span.has-text-grey-lighter
             | /
-      = render @comments
-      = render 'comments/form', commentable_type: 'Portfolio', commentable_id: @portfolio.id if user_signed_in?
+      = render @comments, commentable_type: 'Portfolio', commentable_id: @portfolio.id
+      = render 'comments/form', comment: @comment, commentable_type: 'Portfolio', commentable_id: @portfolio.id if user_signed_in?
     .column.side-panel.bg-fa
       label.label 関連ポートフォリオ
       = render @related_portfolios

@@ -1,0 +1,1 @@
+document.querySelector("#comment<%= @comment.id %>").innerHTML = "<%= j(render partial: 'comments/form', locals: { comment: @comment, commentable_type: params[:commentable_type], commentable_id: params[:commentable_id] }) %>";

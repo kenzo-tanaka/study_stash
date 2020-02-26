@@ -1,7 +1,6 @@
-.has-margin-top
-  = form_for Comment.new do |f|
-    label.label コメントする
-    = f.hidden_field :commentable_type, value: commentable_type
-    = f.hidden_field :commentable_id, value: commentable_id
-    = f.text_area :content, class: 'textarea'
-    = f.submit class: 'button'
+= form_for comment do |f|
+  label.label コメントする
+  = f.hidden_field :commentable_type, value: commentable_type
+  = f.hidden_field :commentable_id, value: commentable_id
+  = f.text_area :content, class: 'textarea'
+  = f.submit class: 'button'
