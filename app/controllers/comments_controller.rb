@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :check_comment_owner, only: [:edit, :update, :destory]
 
   # GET /comments/new
   def new
@@ -58,5 +59,9 @@ class CommentsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def comment_params
       params.require(:comment).permit(:content, :user_id, :commentable_type, :commentable_id)
+    end
+
+    def check_comment_owner
+      redirect_to root_path, notice: '権限がありません' unless @comment.user == current_user
     end
 end

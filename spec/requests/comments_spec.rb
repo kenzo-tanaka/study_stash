@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Comments", type: :request do
   let(:user) { create(:user) }
   let(:portfolio) { create(:portfolio) }
-  let(:comment) { create(:comment, commentable: portfolio) }
+  let(:comment) { create(:comment, commentable: portfolio, user: user) }
 
   before { sign_in user }
 
