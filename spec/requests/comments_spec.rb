@@ -7,16 +7,6 @@ RSpec.describe "Comments", type: :request do
 
   before { sign_in user }
 
-  describe "#new" do
-    subject { get new_comment_path }
-    it { is_expected.to eq 200 }
-  end
-
-  describe "#new" do
-    subject { get edit_comment_path(comment) }
-    it { is_expected.to eq 200 }
-  end
-
   describe "#create" do
     let(:comment_params) { attributes_for(:comment, commentable_type: 'Portfolio', commentable_id: portfolio.id, user_id: user.id) }
     subject { post comments_path, params: { comment: comment_params } }
