@@ -17,10 +17,11 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
 
     if @comment.save
+      flash[:notice] = 'コメントを投稿しました。'
       redirect_back(fallback_location: root_path)
     else
-      format.html { render :new }
-      format.json { render json: @comment.errors, status: :unprocessable_entity }
+      flash[:notice] = 'コメントを保存できませんでした。'
+      redirect_back(fallback_location: root_path)
     end
   end
 
