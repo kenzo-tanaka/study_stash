@@ -6,5 +6,5 @@
       p
         = comment.content
   - if is_yours(comment)
-    = link_to edit_comment_path(comment), remote: true, class: 'is-pulled-right is-size-7 has-text-black' do
+    = link_to edit_comment_path(comment, params: { commentable_type: commentable_type, commentable_id: commentable_id }), remote: true, class: 'is-pulled-right is-size-7 has-text-black' do
       i.fas.fa-pencil-alt

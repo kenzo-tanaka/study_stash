@@ -29,14 +29,12 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
-      else
-        format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
+    if @comment.update(comment_params.merge(user_id: current_user.id))
+      flash[:notice] = 'コメントを更新しました。'
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:notice] = 'コメントを更新できませんでした。'
+      redirect_back(fallback_location: root_path)
     end
   end
 
