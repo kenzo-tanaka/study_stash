@@ -15,6 +15,10 @@ module ApplicationHelper
     end
   end
 
+  def is_yours(instance)
+    user_signed_in? && instance.user == current_user
+  end
+
   def default_meta_tags
     {
       site:  Settings.service.concept,
