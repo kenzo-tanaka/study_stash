@@ -135,6 +135,10 @@ footer {
   padding: 0;
 }
 
+.is-size-09 {
+  font-size: 0.9em;
+}
+
 /* カルーセル */
 .scroll-container {
   overflow-x: auto;
