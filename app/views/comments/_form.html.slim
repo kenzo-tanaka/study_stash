@@ -1,5 +1,5 @@
 .has-margin-top
-  = form_for Comment.new do |f|
+  = form_for comment do |f|
     label.label コメントする
     = f.hidden_field :commentable_type, value: commentable_type
     = f.hidden_field :commentable_id, value: commentable_id
