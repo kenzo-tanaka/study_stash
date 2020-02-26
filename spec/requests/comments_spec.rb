@@ -5,6 +5,8 @@ RSpec.describe "Comments", type: :request do
   let(:portfolio) { create(:portfolio) }
   let(:comment) { create(:comment, commentable: portfolio) }
 
+  before { sign_in user }
+
   describe "#new" do
     subject { get new_comment_path }
     it { is_expected.to eq 200 }
