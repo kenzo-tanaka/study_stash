@@ -2,9 +2,9 @@
   .faceicon
     = display_user_icon(comment.user)
   .chatting
-    .says
+    .says id="comment#{comment.id}"
       p
         = comment.content
   - if is_yours(comment)
-    = link_to edit_comment_path(comment), class: 'is-pulled-right is-size-7' do
+    = link_to edit_comment_path(comment), remote: true, class: 'is-pulled-right is-size-7 has-text-black' do
       i.fas.fa-pencil-alt
