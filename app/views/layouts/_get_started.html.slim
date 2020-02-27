@@ -18,7 +18,7 @@
           label.is-size-6.label
             = link_to portfolio.title, portfolio_path(portfolio)
           p.is-size-7
-            = portfolio.description
+            = portfolio.description.truncate(100)
           .tags.has-small-margin-top
             - portfolio.tags.each do |tag|
               span.tag
