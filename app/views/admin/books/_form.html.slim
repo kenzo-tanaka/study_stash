@@ -1,0 +1,6 @@
+= form_for [:admin, @book] do |f|
+  = f.text_field :title, class: 'input', placeholder: 'title'
+  = f.text_area :description, class: 'textarea'
+  = f.text_field :image_url, class: 'input', placeholder: 'image url'
+  = f.text_field :url, class: 'input', placeholder: 'affiliate url'
+  .actions = f.submit
