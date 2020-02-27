@@ -27,7 +27,7 @@
             .comments.is-pulled-right.has-small-margin-top
               - portfolio.comments.map(&:user).uniq.take(3).each do |user|
                 = display_user_icon(user, size: '25x25', style: 'margin-left: -6px;')
-    = link_to '全てのポートフォリオを見る', portfolios_path
+    = link_to '全てのポートフォリオを見る', portfolios_path, class: 'button is-small'
   .section
     .has-margin-top.has-text-centered
       h2.has-text-weight-bold.is-size-5
@@ -40,7 +40,6 @@
               = image_tag book.image_url
               label.label
                 = link_to book.title, book.url, target: '_blank'
-
   .section.has-margin-top.has-text-centered
     h2.has-text-weight-bold.is-size-5
       = Settings.service.study_time_tagline
