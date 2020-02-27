@@ -160,7 +160,6 @@ footer {
   flex-wrap: nowrap;
 }
 .scroll-container[data-layoutmethod="flexbox"] .scroll-item {
-  margin-right: 1em;
   margin-bottom: 3em;
   flex: 0 0 auto;
 }
