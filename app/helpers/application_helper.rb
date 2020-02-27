@@ -7,11 +7,11 @@ module ApplicationHelper
     end
   end
 
-  def display_user_icon(user)
+  def display_user_icon(user, size: '40x40')
     if user.icon.present?
-      image_tag user.icon, size: '40x40'
+      image_tag user.icon, size: size, style: 'border-radius: 50%;'
     else
-      image_tag 'user_default_icon', size: '40x40'
+      image_tag 'user_default_icon', size: size, style: 'border-radius: 50%;'
     end
   end
 
