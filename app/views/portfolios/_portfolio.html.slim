@@ -17,7 +17,7 @@
         span.has-text-grey-lighter
           | /
     - if portfolio.comments.present?
-      .is-pulled-right
+      .is-pulled-right.is-size-7
         = link_to portfolio_path(portfolio) do
           i.far.fa-comment-alt
           = portfolio.comments.count
