@@ -5,7 +5,7 @@
   .column
     = link_to portfolio.title, portfolio_path(portfolio), class: 'has-text-weight-bold'
     p.is-size-7
-      = portfolio.description
+      = portfolio.description.truncate(100)
     .tags.has-small-margin-top
       - portfolio.tags.each do |tag|
         span.tag
@@ -17,7 +17,7 @@
         span.has-text-grey-lighter
           | /
     - if portfolio.comments.present?
-      .is-pulled-right
+      .is-pulled-right.is-size-7
         = link_to portfolio_path(portfolio) do
           i.far.fa-comment-alt
           = portfolio.comments.count
