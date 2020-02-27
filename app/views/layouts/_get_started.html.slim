@@ -23,6 +23,9 @@
             - portfolio.tags.each do |tag|
               span.tag
                 = link_to tag.name, tag_path(tag)
+            - if portfolio.comments.present?
+              - portfolio.comments.map(&:user).uniq.take(5).each do |user|
+                = display_user_icon(user, size: '25x25')
     = link_to '全てのポートフォリオを見る', portfolios_path
   .section
     .has-margin-top.has-text-centered
