@@ -6,7 +6,7 @@
     = link_to portfolio.title, portfolio_path(portfolio), class: 'has-text-weight-bold'
     p.is-size-7
       = portfolio.description.truncate(100)
-    .tags.has-small-margin-top
+    .tags.has-small-margin-top.has-margin-bottom-zero
       - portfolio.tags.each do |tag|
         span.tag
           = link_to tag.name, tag_path(tag)

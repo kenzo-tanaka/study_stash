@@ -18,6 +18,10 @@
   color: hsl(141, 71%,  48%);
 }
 
+.has-margin-bottom-zero {
+  margin-bottom: 0!important;
+}
+
 .has-margin-top {
   margin-top: 30px;
 }
