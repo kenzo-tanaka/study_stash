@@ -13,5 +13,7 @@ nav.navbar.is-spaced
           .buttons
             = link_to 'エンジニアのポートフォリオ', portfolios_path, class: 'button is-text'
             = link_to 'ダッシュボード', dashboard_path, class: 'button is-text' if user_signed_in?
-            = link_to 'ポートフォリオ管理', admin_portfolios_path, class: 'button is-text' if current_user&.admin?
+            - if current_user&.admin?
+              = link_to 'ポートフォリオ管理', admin_portfolios_path, class: 'button is-text'
+              = link_to '書籍管理', admin_books_path, class: 'button is-text'
             = display_session_path
