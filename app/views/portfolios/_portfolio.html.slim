@@ -5,7 +5,7 @@
   .column
     = link_to portfolio.title, portfolio_path(portfolio), class: 'has-text-weight-bold'
     p.is-size-7
-      = portfolio.description
+      = portfolio.description.truncate(100)
     .tags.has-small-margin-top
       - portfolio.tags.each do |tag|
         span.tag
