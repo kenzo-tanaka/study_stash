@@ -11,12 +11,6 @@ class SchedulesController < ApplicationController
     @books = Book.all
   end
 
-  # GET /schedules/1
-  # GET /schedules/1.json
-  def show
-    @schedules = @schedule.user.schedules
-  end
-
   # GET /schedules/new
   def new
     @schedule = Schedule.new
@@ -33,7 +27,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
+        format.html { redirect_to dashboard_path, notice: 'Schedule was successfully created.' }
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new }
@@ -47,7 +41,7 @@ class SchedulesController < ApplicationController
   def update
     respond_to do |format|
       if @schedule.update(schedule_params)
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
+        format.html { redirect_to dashboard_path, notice: 'Schedule was successfully updated.' }
         format.json { render :show, status: :ok, location: @schedule }
       else
         format.html { render :edit }

@@ -30,9 +30,6 @@ SitemapGenerator::Sitemap.create do
   end
 
   add schedules_path
-  Schedule.find_each do |schedule|
-    add schedule_path(schedule), :lastmod => schedule.updated_at
-  end
 
   Tag.find_each do |tag|
     add tag_path(tag), :lastmod => tag.updated_at
