@@ -10,12 +10,6 @@
       li
         = link_to "#{@tag.name}", tag_path(@tag)
   .columns
-    .column.is-one-third.side-panel.bg-fa
-      .field
-        label.label
-          = @tag.name
-        - @tags.each do |tag|
-          spant.tag.has-background-white
-            = link_to tag.name, tag_path(tag)
+    = render 'tags/tag_sidebar', side_title: @tag.name, tags: @tags
     .column.has-small-margin-left
       = render @portfolios

@@ -6,12 +6,6 @@
       li
         = link_to 'ポートフォリオ一覧', portfolios_path
   .columns
-    .column.is-one-third.side-panel.bg-fa
-      .field
-        label.label タグ一覧
-        .tags
-          - @tags.each do |tag|
-            span.tag.has-background-white
-              = link_to tag.name, tag_path(tag)
+    = render 'tags/tag_sidebar', side_title: 'タグ一覧', tags: @tags
     .column.has-small-margin-left
       = render @portfolios
