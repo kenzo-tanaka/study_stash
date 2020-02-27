@@ -8,10 +8,12 @@ module ApplicationHelper
   end
 
   def display_user_icon(user, size: '40x40', style: '')
-    if user.icon.present?
-      image_tag user.icon, size: size, class: 'user-icon', style: style
-    else
-      image_tag 'user_default_icon', size: size, class: 'user-icon', style: style
+    link_to user_path(user) do
+      if user.icon.present?
+        image_tag user.icon, size: size, class: 'user-icon', style: style
+      else
+        image_tag 'user_default_icon', size: size, class: 'user-icon', style: style
+      end
     end
   end
 
