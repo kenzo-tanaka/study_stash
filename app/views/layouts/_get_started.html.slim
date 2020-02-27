@@ -26,7 +26,7 @@
           - if portfolio.comments.present?
             .comments.is-pulled-right.has-small-margin-top
               - portfolio.comments.map(&:user).uniq.take(3).each do |user|
-                = display_user_icon(user, size: '25x25')
+                = display_user_icon(user, size: '25x25', style: 'margin-left: -6px;')
     = link_to '全てのポートフォリオを見る', portfolios_path
   .section
     .has-margin-top.has-text-centered
