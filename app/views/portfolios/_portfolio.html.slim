@@ -17,5 +17,5 @@
         span.has-text-grey-lighter
           | /
     - if portfolio.comments.present?
-      - portfolio.comments.map(&:user).uniq.take(5).each do |user|
+      - portfolio.comments.map(&:user).uniq.take(3).each do |user|
         = display_user_icon(user, size: '25x25')

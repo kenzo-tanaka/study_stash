@@ -19,12 +19,13 @@
             = link_to portfolio.title, portfolio_path(portfolio)
           p.is-size-7
             = portfolio.description.truncate(100)
-          .tags.has-small-margin-top
+          .tags.has-small-margin-top.is-inline-block
             - portfolio.tags.each do |tag|
               span.tag
                 = link_to tag.name, tag_path(tag)
-            - if portfolio.comments.present?
-              - portfolio.comments.map(&:user).uniq.take(5).each do |user|
+          - if portfolio.comments.present?
+            .comments.is-pulled-right.has-small-margin-top
+              - portfolio.comments.map(&:user).uniq.take(3).each do |user|
                 = display_user_icon(user, size: '25x25')
     = link_to '全てのポートフォリオを見る', portfolios_path
   .section
