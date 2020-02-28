@@ -50,6 +50,10 @@
   box-shadow: 0 0 0!important;
 }
 
+.has-shadow {
+  box-shadow: inset 8px 0 13px rgba(0,0,0,.15), 6px 8px 12px -3px rgba(0,0,0,0.26);
+}
+
 .user-icon {
   border-radius: 50%;
 }

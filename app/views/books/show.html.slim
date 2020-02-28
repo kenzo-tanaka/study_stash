@@ -1,9 +1,15 @@
-.section
+.section.has-background-light
   .columns
-    .column.is-one-fifth.has-text-centered
-      = image_tag @book.image_url
-    .column.is-three-fifths
-      h3.has-text-weight-bold.is-size-6
+    .column
+    .column.has-text-centered
+      = image_tag @book.image_url, alt: @book.title, class: 'has-shadow'
+    .column.has-margin-top
+      h3.has-text-weight-bold.is-size-5
         = @book.title
-      = link_to 'Amazonで見る', @book.url, class: 'button is-primary has-margin-top', target: '_blank'
+      br
+      = link_to 'Amazonで見てみる', @book.url, target: '_blank', class: 'button is-success'
+      .tags.has-margin-top
+        - @book.tags.each do |tag|
+          span.tag.has-background-white
+            = tag.name
     .column
