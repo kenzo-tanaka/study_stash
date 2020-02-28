@@ -1,2 +1,9 @@
-
-
+.section
+  .columns
+    .column.is-one-fifth.has-text-centered
+      = image_tag @book.image_url
+    .column.is-three-fifths
+      h3.has-text-weight-bold.is-size-6
+        = @book.title
+      = link_to 'Amazonで見る', @book.url, class: 'button is-primary has-margin-top', target: '_blank'
+    .column
