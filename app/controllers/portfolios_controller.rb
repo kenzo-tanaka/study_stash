@@ -9,7 +9,7 @@ class PortfoliosController < ApplicationController
     @comment = Comment.new
     @comments = @portfolio.comments
     @tags = @portfolio.tags.includes(portfolios: [:related_links, :portfolio_tags, :tags, comments: [:user]])
-    @related_portfolios = @tags.flat_map(&:portfolios).reject { |portfolio| portfolio == @portfolio }.uniq.take(3)
+    @related_portfolios = @tags.flat_map(&:portfolios).reject { |portfolio| portfolio == @portfolio }.uniq.take(2)
   end
 
   private
