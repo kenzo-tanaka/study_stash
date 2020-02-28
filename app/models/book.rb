@@ -12,6 +12,8 @@
 #
 
 class Book < ApplicationRecord
+  has_many :book_tags, dependent: :destroy
+  has_many :tags, through: :book_tags
   validates :title, presence: true
   validates :url, format: { with: /\A#{URI.regexp(%w[http https])}\z/ }
   validates :image_url, format: { with: /\A#{URI.regexp(%w[http https])}\z/ }
