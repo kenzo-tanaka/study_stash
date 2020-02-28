@@ -23,7 +23,6 @@ class Portfolio < ApplicationRecord
   validates :ogp_url, format: { with: /\A#{URI.regexp(%w[http https])}\z/ }
 
   scope :latest, -> { order(created_at: :desc) }
-  # Ex:- scope :active, -> {where(:active => true)}
 
   before_save :get_meta_datas
 

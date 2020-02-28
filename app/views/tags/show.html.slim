@@ -10,6 +10,15 @@
       li
         = link_to "#{@tag.name}", tag_path(@tag)
   .columns
-    = render 'tags/tag_sidebar', side_title: @tag.name, tags: @tags
+    .column.is-one-third.side-panel
+      .bg-fa.has-padding
+        label.label
+          = @tag.name
+        .tags
+          = render @tags
+      - if @books.present?
+        .bg-fa.has-margin-top.has-padding
+          label.label 関連書籍
+          = render @books
     .column.has-small-margin-left
       = render @portfolios
