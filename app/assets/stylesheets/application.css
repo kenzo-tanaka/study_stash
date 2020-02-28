@@ -54,6 +54,12 @@
   box-shadow: inset 8px 0 13px rgba(0,0,0,.15), 6px 8px 12px -3px rgba(0,0,0,0.26);
 }
 
+@media only screen and (max-width: 600px) {
+  .mobile-centered {
+    text-align: center!important;
+  }
+}
+
 .user-icon {
   border-radius: 50%;
 }
