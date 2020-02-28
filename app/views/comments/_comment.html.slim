@@ -3,6 +3,8 @@
     = display_user_icon(comment.user)
   .chatting
     .says
+      label.label
+        = comment.user.name
       p.is-size-09
         = comment.content
     - if is_yours(comment)
