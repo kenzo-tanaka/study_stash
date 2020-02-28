@@ -13,3 +13,5 @@
           span.tag.has-background-white
             = tag.name
     .column
+.section.has-margin-top
+  = render 'comments/form', comment: Comment.new, commentable_type: 'Book', commentable_id: @book.id if user_signed_in?
