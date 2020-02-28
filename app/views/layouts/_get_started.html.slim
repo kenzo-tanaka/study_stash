@@ -12,19 +12,19 @@
     br
     .columns.is-multiline
       - @portfolios.each do |portfolio|
-        .column.is-one-third
+        .column.is-one-third.mobile-border-bottom
           = link_to portfolio_path(portfolio) do
             = image_tag portfolio.ogp_url
           label.is-size-6.label
             = link_to portfolio.title, portfolio_path(portfolio)
           p.is-size-7
             = portfolio.description.truncate(100)
-          .tags.has-small-margin-top.is-inline-block
+          .tags.has-small-margin-top
             - portfolio.tags.each do |tag|
               span.tag
                 = link_to tag.name, tag_path(tag)
           - if portfolio.comments.present?
-            .comments.is-pulled-right.has-small-margin-top
+            .comments.has-small-margin-top
               - portfolio.comments.map(&:user).uniq.take(3).each do |user|
                 = display_user_icon(user, size: '25x25', style: 'margin-left: -6px;')
     = link_to '全てのポートフォリオを見る', portfolios_path, class: 'button is-small'
