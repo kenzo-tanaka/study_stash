@@ -5,3 +5,7 @@
     label.label
       = link_to book.title, book_path(book)
     = link_to 'Amazonで見る', book.url, target: '_blank', class: 'button is-success'
+    - if book.comments.present?
+      .has-small-margin-top
+        - book.comments.map(&:user).uniq.take(3).each do |user|
+          = display_user_icon(user, size: '25x25', style: 'margin-left: -6px;')

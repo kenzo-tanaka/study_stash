@@ -11,7 +11,7 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     @comments = @book.comments.includes(:user)
-    @tags = @book.tags.includes(books: [:book_tags])
+    @tags = @book.tags.includes(books: [:book_tags, comments: [:user]])
     @related_books = @tags.flat_map(&:books).reject { |book| book == @book }.uniq.take(3)
   end
 
