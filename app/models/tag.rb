@@ -11,8 +11,10 @@
 #
 
 class Tag < ApplicationRecord
-  has_many :portfolio_tags
+  has_many :portfolio_tags, dependent: :destroy
   has_many :portfolios, through: :portfolio_tags
+  has_many :book_tags, dependent: :destroy
+  has_many :books, through: :book_tags
 
   scope :has_portfolios, lambda {
     joins(:portfolios)

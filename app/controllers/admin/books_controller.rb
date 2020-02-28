@@ -67,7 +67,8 @@ class Admin::BooksController < Admin::ApplicationController
         :title,
         :description,
         :url,
-        :image_url
+        :image_url,
+        tag_ids: []
       )
     end
 end
