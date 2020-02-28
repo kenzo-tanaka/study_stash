@@ -1,6 +1,6 @@
-.columns.bg-fa.has-padding
+.columns.bg-fa.has-padding.mobile-centered
   .column
-    = image_tag book.image_url
+    = image_tag book.image_url, class: 'related-book-img'
   .column
     label.label
       = link_to book.title, book_path(book)
