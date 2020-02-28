@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :schedules
   resources :comments
+  resources :books
   get '/dashboard' => 'schedules#dashboard'
   get '/login' => 'users#login'
   root 'schedules#index'
