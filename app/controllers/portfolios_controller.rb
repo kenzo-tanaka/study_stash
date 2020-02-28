@@ -3,6 +3,7 @@ class PortfoliosController < ApplicationController
   def index
     @portfolios = Portfolio.includes(:tags, :related_links, comments: [:user]).latest
     @tags = Tag.has_portfolios
+    @books = Book.latest
   end
 
   def show
