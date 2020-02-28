@@ -20,4 +20,8 @@
       .has-margin-top
         = render 'comments/form', comment: Comment.new, commentable_type: 'Book', commentable_id: @book.id if user_signed_in?
     .column
-      = render @related_books
+      label.label
+        | 関連書籍
+      br
+      .bg-fa
+        = render @related_books
