@@ -5,7 +5,9 @@
         = link_to 'トップ', root_path
       li
         = link_to 'ポートフォリオ一覧', portfolios_path
-  .columns
+  .columns.reverse-row-order
+    .column.has-small-margin-left
+      = render @portfolios
     .column.is-one-third.side-panel
       .bg-fa.has-padding
         label.label タグ一覧
@@ -14,5 +16,3 @@
       .bg-fa.has-margin-top.has-padding
         label.label Study Stash開発者のおすすめ書籍
         = render @books
-    .column.has-small-margin-left
-      = render @portfolios

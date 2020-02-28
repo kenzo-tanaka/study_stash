@@ -84,6 +84,10 @@ html, body {
   min-height: 100%!important;
 }
 
+.reverse-row-order {
+  flex-direction: row-reverse;
+}
+
 .twitter-button {
   background-color: rgb(29, 161, 242)!important;
   color: #fff!important;

@@ -9,7 +9,9 @@
         = link_to 'ポートフォリオ一覧', portfolios_path
       li
         = link_to "#{@tag.name}", tag_path(@tag)
-  .columns
+  .columns.reverse-row-order
+    .column.has-small-margin-left
+      = render @portfolios
     .column.is-one-third.side-panel
       .bg-fa.has-padding
         label.label
@@ -20,5 +22,3 @@
         .bg-fa.has-margin-top.has-padding
           label.label 関連書籍
           = render @books
-    .column.has-small-margin-left
-      = render @portfolios
