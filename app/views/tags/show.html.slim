@@ -10,6 +10,10 @@
       li
         = link_to "#{@tag.name}", tag_path(@tag)
   .columns
-    = render 'tags/tag_sidebar', side_title: @tag.name, tags: @tags
+    .column.is-one-third.side-panel.bg-fa
+      label.label
+        = @tag.name
+      .tags
+        = render @tags
     .column.has-small-margin-left
       = render @portfolios
