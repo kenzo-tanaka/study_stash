@@ -62,9 +62,12 @@
   font-size: 1.15rem!important;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 750px) {
   .mobile-centered {
     text-align: center!important;
+  }
+  .related-book-img {
+    max-width: 250px;
   }
 }
 
@@ -110,8 +113,12 @@ footer {
   border-bottom: 1px solid #e1e4e8
 }
 
-.bg-fa {
+.bg-ef {
   background-color: #EFEFEF;
+}
+
+.bg-fa {
+  background-color: #fafafa;
 }
 
 .side-panel {

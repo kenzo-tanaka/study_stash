@@ -1,0 +1,7 @@
+.columns.bg-fa.has-padding.mobile-centered
+  .column
+    = image_tag book.image_url, class: 'related-book-img'
+  .column
+    label.label
+      = link_to book.title, book_path(book)
+    = link_to 'Amazonで見る', book.url, target: '_blank', class: 'button is-success'
