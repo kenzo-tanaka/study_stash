@@ -39,7 +39,7 @@
             .card-content
               = image_tag book.image_url
               label.label
-                = link_to book.title, book.url, target: '_blank'
+                = link_to book.title, book_path(book)
   .section.has-margin-top.has-text-centered
     h2.has-text-weight-bold.is-size-5
       = Settings.service.study_time_tagline
