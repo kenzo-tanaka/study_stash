@@ -110,8 +110,12 @@ footer {
   border-bottom: 1px solid #e1e4e8
 }
 
-.bg-fa {
+.bg-ef {
   background-color: #EFEFEF;
+}
+
+.bg-fa {
+  background-color: #fafafa;
 }
 
 .side-panel {
