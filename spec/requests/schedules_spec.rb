@@ -10,6 +10,11 @@ RSpec.describe "Schedules", type: :request do
   before { sign_in user }
 
   describe "GET #index" do
+    let!(:portfolio) { create(:portfolio) }
+    let!(:book) { create(:book) }
+    let!(:portfolio_comment) { create(:comment, portfolio: portfolio) }
+    let!(:book_commment) { create(:comment, book: book) }
+    let!(:new_schedule) { create(:schedule, user: user) }
     subject { get schedules_path }
     it { is_expected.to eq 200 }
   end
