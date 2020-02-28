@@ -8,8 +8,9 @@ class PortfoliosController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @portfolio.comments
-    @tags = @portfolio.tags.includes(portfolios: [:related_links, :portfolio_tags, :tags, comments: [:user]])
+    @tags = @portfolio.tags.includes(books: [:book_tags], portfolios: [:related_links, :portfolio_tags, :tags, comments: [:user]])
     @related_portfolios = @tags.flat_map(&:portfolios).reject { |portfolio| portfolio == @portfolio }.uniq.take(2)
+    @related_books = @tags.flat_map(&:books).uniq.take(2)
   end
 
   private
