@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_blog_owner, only: [:edit, :update, :destory]
 
   # GET /blogs
   # GET /blogs.json
@@ -70,5 +72,9 @@ class BlogsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def blog_params
       params.fetch(:blog, {})
+    end
+
+    def check_blog_owner
+      redirect_to root_path, notice: '権限がありません' unless @blog.user == current_user
     end
 end
