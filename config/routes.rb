@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :schedules
   resources :comments
-  resources :blogs
+  resources :blogs, except: :index
   resources :books, only: [:index, :show]
   get '/dashboard' => 'schedules#dashboard'
   get '/login' => 'users#login'
