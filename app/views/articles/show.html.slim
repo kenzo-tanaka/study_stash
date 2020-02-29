@@ -1,4 +1,6 @@
-p#notice = notice
-
-= link_to 'Edit', edit_article_path(@article)
-= link_to 'Back', articles_path
+.section.blog-content
+  .has-text-centered
+    h2.has-text-weight-bold.is-size-4.has-margin-top
+      = @article.title
+    = image_tag @article.thumbnail_url, style: 'max-width: 450px;'
+  = @article.content
