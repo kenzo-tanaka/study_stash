@@ -1,13 +1,19 @@
 p#notice = notice
 .section
   .columns
-    .column.is-two-fifths.has-2em-padding
+    .column.is-one-third.has-text-centered
       = display_user_icon(@blog.user, size: '75x75')
       label.label
         = @blog.user.name
-      = link_to 'ブログを編集する', edit_blog_path(@blog), class: 'button' if is_yours(@blog)
-    .column
+      - if is_yours(@blog)
+        = link_to 'ブログを編集する', edit_blog_path(@blog), class: 'button is-block'
+        = link_to '記事を執筆する', new_article_path, class: 'button is-link is-block'
+    .column.is-three-fifths
       - @blog.articles.each do |article|
-        h2.has-text-weight-bold.is-size-5
-          = article.title
+        .has-small-margin-top
+          h2.has-text-weight-bold.is-size-4
+            = link_to article.title, article_path(article), class: 'has-text-grey-dark'
+          p.has-text-grey
+            = l article.created_at
+          = link_to '読む', article_path(article), class: 'is-block has-small-padding'
 

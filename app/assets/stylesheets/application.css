@@ -66,6 +66,11 @@
   font-size: 1.15rem!important;
 }
 
+.blog-content {
+  max-width: 59.0625rem;
+  margin: 0 auto;
+}
+
 @media only screen and (max-width: 750px) {
   .mobile-centered {
     text-align: center!important;
