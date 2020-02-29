@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :schedules
   resources :comments
-  resources :blogs, except: :index do
+  resources :blogs, except: :index, shallow: true do
     resources :articles, except: :index
   end
   resources :books, only: [:index, :show]
