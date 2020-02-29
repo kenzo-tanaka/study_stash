@@ -26,7 +26,7 @@ class BlogsController < ApplicationController
   # POST /blogs
   # POST /blogs.json
   def create
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blog.new(blog_params)
 
     respond_to do |format|
       if @blog.save
@@ -71,7 +71,7 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.fetch(:blog, {})
+      params.require(:blog).permit(:title)
     end
 
     def check_blog_owner
