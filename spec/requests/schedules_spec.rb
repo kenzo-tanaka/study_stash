@@ -12,8 +12,8 @@ RSpec.describe "Schedules", type: :request do
   describe "GET #index" do
     let!(:portfolio) { create(:portfolio) }
     let!(:book) { create(:book) }
-    let!(:portfolio_comment) { create(:comment, portfolio: portfolio) }
-    let!(:book_commment) { create(:comment, book: book) }
+    let!(:portfolio_comment) { create(:comment, commentable: portfolio, user: user) }
+    let!(:book_commment) { create(:comment, commentable: book, user: user) }
     let!(:new_schedule) { create(:schedule, user: user) }
     subject { get schedules_path }
     it { is_expected.to eq 200 }
