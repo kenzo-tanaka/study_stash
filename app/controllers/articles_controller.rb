@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :check_article_owner, only: [:edit, :update, :destory]
 
   # GET /articles
   # GET /articles.json
@@ -70,5 +71,9 @@ class ArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :content, :thumbnail_url, :blog_id)
+    end
+
+    def check_article_owner
+      redirect_to root_path, notice: '権限がありません' unless @article.blog.user == current_user
     end
 end
