@@ -19,6 +19,7 @@ module StudyStack
     config.i18n.default_locale = :ja
     config.generators do |g|
       g.scaffold_stylesheet false
+      g.jbuilder false
     end
   end
 end
