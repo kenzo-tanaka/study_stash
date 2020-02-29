@@ -5,7 +5,9 @@ p#notice = notice
       = display_user_icon(@blog.user, size: '75x75')
       label.label
         = @blog.user.name
-      = link_to 'ブログを編集する', edit_blog_path(@blog), class: 'button' if is_yours(@blog)
+      - if is_yours(@blog)
+        = link_to 'ブログを編集する', edit_blog_path(@blog), class: 'button is-block'
+        = link_to '記事を執筆する', new_article_path, class: 'button is-link is-block'
     .column
       - @blog.articles.each do |article|
         h2.has-text-weight-bold.is-size-5
