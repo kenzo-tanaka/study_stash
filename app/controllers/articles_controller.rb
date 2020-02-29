@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :check_article_owner, only: [:edit, :update, :destory]
+  before_action :check_blog_present, only: :new
 
   # GET /articles
   # GET /articles.json
@@ -75,5 +76,9 @@ class ArticlesController < ApplicationController
 
     def check_article_owner
       redirect_to root_path, notice: '権限がありません' unless @article.blog.user == current_user
+    end
+
+    def check_blog_present
+      redirect_to new_blog_path, notice: 'まずはブログを作成してください' unless user_signed_in? && current_user.blog.present?
     end
 end
