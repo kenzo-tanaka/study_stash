@@ -2,6 +2,6 @@
   .has-text-centered
     h2.has-text-weight-bold.is-size-4.has-margin-top
       = @article.title
-    = image_tag @article.thumbnail_url, style: 'max-width: 450px;'
   .has-small-margin-top
     = markdown(@article.content).html_safe
+= stylesheet_pack_tag 'application'
