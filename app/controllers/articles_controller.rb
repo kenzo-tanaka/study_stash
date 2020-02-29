@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = Article.new(article_params.merge(blog: current_user.blog))
 
     respond_to do |format|
       if @article.save
