@@ -1,3 +1,12 @@
 p#notice = notice
-
+.section
+  .columns
+    .column.is-two-fifths.has-2em-padding
+      = display_user_icon(@blog.user, size: '75x75')
+      label.label
+        = @blog.user.name
+    .column
+      - @blog.articles.each do |article|
+        h2.has-text-weight-bold.is-size-5
+          = article.title
 
