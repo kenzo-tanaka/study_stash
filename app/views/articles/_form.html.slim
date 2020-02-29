@@ -5,5 +5,7 @@
       ul
         - @article.errors.full_messages.each do |message|
           li = message
-
+  = f.text_field :title, class: 'input', placeholder: 'title...'
+  = f.text_field :thumbnail_url, class: 'input', placeholder: 'https...'
+  = f.text_area :content, class: 'textarea', rows: 30
   .actions = f.submit
