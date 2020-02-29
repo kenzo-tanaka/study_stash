@@ -4,4 +4,4 @@
       = @article.title
     = image_tag @article.thumbnail_url, style: 'max-width: 450px;'
   .has-small-margin-top
-    = @article.content
+    = markdown(@article.content).html_safe
