@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :schedules
   resources :comments
-  resources :blogs, except: :index
+  resources :blogs, except: :index do
+    resources :articles
+  end
   resources :books, only: [:index, :show]
   get '/dashboard' => 'schedules#dashboard'
   get '/login' => 'users#login'
