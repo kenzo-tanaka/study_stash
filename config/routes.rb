@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :schedules
   resources :comments
   resources :blogs, except: :index do
-    resources :articles
+    resources :articles, except: :index
   end
   resources :books, only: [:index, :show]
   get '/dashboard' => 'schedules#dashboard'

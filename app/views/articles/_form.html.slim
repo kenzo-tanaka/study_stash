@@ -1,9 +1,11 @@
-= form_for @article do |f|
+= form_for [@blog, @article] do |f|
   - if @article.errors.any?
     #error_explanation
       h2 = "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
       ul
         - @article.errors.full_messages.each do |message|
           li = message
-
+  = f.text_field :title, class: 'input', placeholder: 'title...'
+  = f.text_field :thumbnail_url, class: 'input', placeholder: 'https://...'
+  = f.text_area :content, class: 'textarea', rows: 30
   .actions = f.submit
