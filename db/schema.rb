@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_042852) do
+ActiveRecord::Schema.define(version: 2020_02_29_012922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.bigint "blog_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "thumbnail_url"
+    t.index ["blog_id"], name: "index_articles_on_blog_id"
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
 
   create_table "book_tags", force: :cascade do |t|
     t.bigint "book_id", null: false
@@ -116,6 +134,8 @@ ActiveRecord::Schema.define(version: 2020_02_28_042852) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "blogs"
+  add_foreign_key "blogs", "users"
   add_foreign_key "book_tags", "books"
   add_foreign_key "book_tags", "tags"
   add_foreign_key "comments", "users"

@@ -38,6 +38,10 @@
   padding: 30px;
 }
 
+.has-2em-padding {
+  padding: 2em!important;
+}
+
 .has-small-padding {
   padding: 3px;
 }
