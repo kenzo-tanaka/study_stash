@@ -2,9 +2,19 @@
 - set_meta_tags og: { image: @article.thumbnail_url } if @article.thumbnail_url.present?
 .section.blog-content
   .has-text-centered
-    = link_to 'Articles', blog_path(@article.blog), class: 'button is-rounded'
+    = link_to 'Articles', blog_path(@blog), class: 'button is-rounded'
     h2.has-text-weight-bold.is-size-4.has-margin-top
       = @article.title
-  .has-small-margin-top#content
+  .has-small-margin-top.has-margin-bottom.has-border-bottom#content
     = markdown(@article.content).html_safe
+  .balloon5.has-margin-top
+    .faceicon
+      = display_user_icon(@blog.user)
+    .chatting
+      .says
+        label.label
+          = @blog.user.name
+        p.is-size-09
+          = link_to 'All Articles', blog_path(@blog), class: 'button is-rounded is-small'
+
 = stylesheet_pack_tag 'application'
