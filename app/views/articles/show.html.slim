@@ -2,6 +2,7 @@
 - set_meta_tags og: { image: @article.thumbnail_url } if @article.thumbnail_url.present?
 .section.blog-content
   .has-text-centered
+    = link_to 'Articles', blog_path(@article.blog), class: 'button is-rounded'
     h2.has-text-weight-bold.is-size-4.has-margin-top
       = @article.title
   .has-small-margin-top#content
