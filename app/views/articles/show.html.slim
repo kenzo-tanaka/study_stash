@@ -1,3 +1,5 @@
+- set_meta_tags title: "#{@article.title} | Study Stash", description: @article.content.truncate(100)
+- set_meta_tags og: { image: @article.thumbnail_url } if @article.thumbnail_url.present?
 .section.blog-content
   .has-text-centered
     h2.has-text-weight-bold.is-size-4.has-margin-top
