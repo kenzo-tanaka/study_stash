@@ -11,8 +11,13 @@ names.each do |name|
   StudyLanguage.create!(name: name)
 end
 
+tags = %w[Python React Vue Firebase AWS Docker Ruby PHP Laravel]
+tags.each do |tag|
+  Tag.create!(name: tag)
+end
+
 10.times.each do |n|
-  User.create(email: "#{n}@gmail.com", password: "password", name: "Sample 00#{n}")
+  User.create(email: "sample00#{n}@gmail.com", password: "password", name: "Sample 00#{n}")
 end
 User.create!(email: 'admin@gmail.com', password: 123456, role: 'admin', name: 'admin')
 
@@ -32,8 +37,23 @@ Blog.all.each do |blog|
   end
 end
 
+Portfolio.create(
+  url: 'https://productstashme.herokuapp.com/',
+  ogp_url: 'https://user-images.githubusercontent.com/33926355/75641252-f1294280-5c7a-11ea-947b-61fc2204cd0e.png',
+  description: '素敵なサービスを見つけられるWebサイト',
+  title: 'Product Stash'
+)
 
-tags = %w[Python React Vue Firebase AWS Docker Ruby PHP Laravel]
-tags.each do |tag|
-  Tag.create!(name: tag)
-end
+Portfolio.create!(
+  url: 'https://ikeatsu-works.herokuapp.com/#1',
+  ogp_url: 'https://ikeatsu-works.s3-ap-northeast-1.amazonaws.com/ikeatsu-works-twitter-card.jpg',
+  description: '池田篤士のポートフォリオサイト',
+  title: '池田篤士のポートフォリオサイト'
+)
+
+Portfolio.create!(
+  url: 'https://supplebox.jp/',
+  ogp_url: 'https://user-images.githubusercontent.com/33926355/75110146-ad787c80-566d-11ea-9057-8a53f5a24bc4.png',
+  description: 'プロテインサービス',
+  title: 'SuppleBox'
+)
