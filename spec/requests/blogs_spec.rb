@@ -19,6 +19,10 @@ RSpec.describe "Blogs", type: :request do
   describe "#new" do
     subject { get new_blog_path }
     it { is_expected.to eq 200 }
+    context '既にブログを所有している時' do
+      let!(:new_blog) { create(:blog, user: user) }
+      it { is_expected.to redirect_to blog_path(new_blog) }
+    end
   end
 
   describe "#create" do

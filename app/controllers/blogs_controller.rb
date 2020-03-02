@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_blog_owner, only: [:edit, :update, :destory]
-
+  before_action :already_has_blog, only: :new
   # GET /blogs
   # GET /blogs.json
   def index
@@ -76,5 +76,9 @@ class BlogsController < ApplicationController
 
     def check_blog_owner
       redirect_to root_path, notice: '権限がありません' unless @blog.user == current_user
+    end
+
+    def already_has_blog
+      redirect_to blog_path(current_user.blog), notice: '複数個のブログを作成できません' if current_user.blog.present?
     end
 end
