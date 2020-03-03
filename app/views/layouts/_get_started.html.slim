@@ -40,17 +40,4 @@
               = image_tag book.image_url
               label.label
                 = link_to book.title, book_path(book)
-  .section.has-margin-top.has-text-centered
-    h2.has-text-weight-bold.is-size-5
-      = Settings.service.study_time_tagline
-    br
-    ul.scroll-container data-layoutmethod="flexbox"
-      - @users.each do |user|
-        li.scroll-item
-          .card
-            .card-content
-              = pie_chart user.schedules.pie_chart_static, suffix: 'min', donut: true
-              = display_user_icon(user)
-              label.label
-                = link_to user.name, user_path(user)
     = render 'layouts/login_section'
