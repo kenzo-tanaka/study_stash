@@ -12,7 +12,7 @@
         = link_to @portfolio.title, portfolio_path(@portfolio)
   .columns
     .column.is-two-thirds
-      = image_tag @portfolio.ogp_url
+      = image_tag @portfolio.ogp_url, class: 'portfolio-img'
       label.label
         = @portfolio.title
       .tags.is-marginless

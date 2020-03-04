@@ -1,7 +1,7 @@
 .columns.has-border-bottom
   .column.has-text-centered
     = link_to portfolio.url, target: '_blank' do
-      = image_tag portfolio.ogp_url if portfolio.ogp_url.present?
+      = image_tag portfolio.ogp_url, class: 'portfolio-img' if portfolio.ogp_url.present?
   .column
     = link_to portfolio.title, portfolio_path(portfolio), class: 'has-text-weight-bold'
     p.is-size-7
