@@ -79,9 +79,8 @@ module ApplicationHelper
   end
 
   def markdown(text)
-    html_render = HTMLwithCoderay.new(filter_html: true, hard_wrap: true)
+    html_render = HTMLwithCoderay.new(filter_html: false, hard_wrap: true)
     options = {
-      filter_html: false,
       autolink: true,
       space_after_headers: true,
       no_intra_emphasis: true,
