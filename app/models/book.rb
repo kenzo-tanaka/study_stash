@@ -15,6 +15,8 @@ class Book < ApplicationRecord
   has_many :book_tags, dependent: :destroy
   has_many :tags, through: :book_tags
   has_many :comments, as: :commentable
+  has_many :book_articles, dependent: :destroy
+  has_many :articles, through: :book_articles
 
   scope :latest, -> { order(created_at: :desc) }
 

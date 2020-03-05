@@ -13,4 +13,6 @@
 
 class Article < ApplicationRecord
   belongs_to :blog
+  has_many :book_articles, dependent: :destroy
+  has_many :books, through: :book_articles
 end
