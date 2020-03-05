@@ -34,4 +34,12 @@ SitemapGenerator::Sitemap.create do
   Tag.find_each do |tag|
     add tag_path(tag), :lastmod => tag.updated_at
   end
+
+  Blog.find_each do |blog|
+    add blog_path(blog, :lastmod => blog.updated_at)
+  end
+
+  Article.find_each do |article|
+    add article_path(article), :lastmod => article.updated_at
+  end
 end
