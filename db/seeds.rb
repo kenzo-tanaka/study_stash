@@ -57,3 +57,17 @@ Portfolio.create!(
   description: 'プロテインサービス',
   title: 'SuppleBox'
 )
+
+
+titles = ["Webを支える技術", "リーダブルコード ―より良いコードを書くためのシンプルで実践的なテクニック (Theory in practice) ", "オブジェクト指向でなぜつくるのか", "新装版 達人プログラマー 職人から名匠への道", "新しいLinuxの教科書", "なっとく！アルゴリズム Kindle版", "オブジェクト指向設計実践ガイド　～Rubyでわかる 進化しつづける柔軟なアプリケーションの育て方", "プロを目指す人のためのRuby入門 言語仕様からテスト駆動開発・デバッグ技法まで (Software Design plusシリーズ) "]
+urls = ["https://amzn.to/2wKfvq5", "https://amzn.to/2HMeYpN", "https://amzn.to/3c0OGhi", "https://amzn.to/32xX8QS", "https://amzn.to/2vlzPxw", "https://amzn.to/3c7Nf0J", "https://amzn.to/397UQum", "https://amzn.to/2vapggE"]
+image_urls = ["https://images-na.ssl-images-amazon.com/images/I/51qo6pgjaSL._SX356_BO1,204,203,200_.jpg", "https://images-na.ssl-images-amazon.com/images/I/51MgH8Jmr3L._SX352_BO1,204,203,200_.jpg", "https://images-na.ssl-images-amazon.com/images/I/51s3936d%2BkL._SX364_BO1,204,203,200_.jpg", "https://images-na.ssl-images-amazon.com/images/I/51aDNpMj8hL._SX350_BO1,204,203,200_.jpg", "https://images-fe.ssl-images-amazon.com/images/I/51h3XbUE5EL.jpg", "https://images-fe.ssl-images-amazon.com/images/I/61bXMHbyv3L.jpg", "https://images-fe.ssl-images-amazon.com/images/I/5112hfXmhtL.jpg", "https://images-na.ssl-images-amazon.com/images/I/51nY-YLt2ZL._SX395_BO1,204,203,200_.jpg"]
+
+
+titles.length.times.each do |n|
+  Book.create!(
+    title: titles[n],
+    url: urls[n],
+    image_url: image_urls[n]
+  )
+end
