@@ -8,7 +8,9 @@
       h3.has-text-weight-bold.book-title
         = @book.title
       br
-      = link_to 'Amazon', @book.url, target: '_blank', class: 'button is-warning has-text-weight-bold'
+      = link_to @book.url, target: '_blank', class: 'button is-warning has-text-weight-bold' do
+        i.fab.fa-amazon
+        | Amazon
       .tags.has-margin-top
         - @book.tags.each do |tag|
           span.tag.has-background-white
