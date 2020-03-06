@@ -209,7 +209,7 @@ footer {
   flex-wrap: nowrap;
 }
 .scroll-container[data-layoutmethod="flexbox"] .scroll-item {
-  margin-bottom: 3em;
+  margin-bottom: 1em;
   flex: 0 0 auto;
 }
 .scroll-container[data-layoutmethod="grid"] {
