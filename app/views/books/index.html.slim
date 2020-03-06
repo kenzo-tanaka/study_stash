@@ -2,7 +2,8 @@
   .columns.is-multiline
     - @books.each do |book|
       .column.is-one-quarter.has-text-centered
-        = image_tag book.image_url, class: 'has-shadow book-img'
+        = link_to book_path(book) do
+          = image_tag book.image_url, class: 'has-shadow book-img'
         = link_to book_path(book)
           label.label
             = book.title
