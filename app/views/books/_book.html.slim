@@ -4,7 +4,7 @@
   .column
     label.label
       = link_to book.title, book_path(book)
-    = link_to 'Amazonで見る', book.url, target: '_blank', class: 'button is-success'
+    = link_to 'Amazonで見る', book.url, target: '_blank', class: 'button is-warning has-text-weight-bold'
     - if book.comments.present?
       .has-small-margin-top
         - book.comments.map(&:user).uniq.take(3).each do |user|
