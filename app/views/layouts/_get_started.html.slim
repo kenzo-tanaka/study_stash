@@ -51,4 +51,5 @@
               = image_tag book.image_url
               label.label
                 = link_to book.title, book_path(book)
+    = link_to '全ての書籍をみる', books_path, class: 'button is-small'
     = render 'layouts/login_section'

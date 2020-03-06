@@ -13,6 +13,7 @@ nav.navbar.is-spaced
           .buttons
             = link_to 'ポートフォリオ', portfolios_path, class: 'button has-text-weight-bold no-border'
             = link_to 'ブログ', blog_path(Blog.first), class: 'button has-text-weight-bold no-border' if Blog.first.present?
+            = link_to '技術書', books_path, class: 'button has-text-weight-bold no-border'
             = link_to 'ダッシュボード', dashboard_path, class: 'button is-text' if user_signed_in?
             - if current_user&.admin?
               = link_to 'ポートフォリオ管理', admin_portfolios_path, class: 'button is-text'
