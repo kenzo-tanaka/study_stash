@@ -9,6 +9,7 @@ class SchedulesController < ApplicationController
     @schedules = Schedule.this_week_studytime_sorted
     @portfolios = Portfolio.includes(:tags, comments: [:user]).limit(6)
     @books = Book.order(created_at: :desc)
+    @articles = Article.order(created_at: :desc).limit(6)
   end
 
   # GET /schedules/new

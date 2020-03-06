@@ -29,6 +29,17 @@
                 = display_user_icon(user, size: '25x25', style: 'margin-left: -6px;')
     = link_to '全てのポートフォリオを見る', portfolios_path, class: 'button is-small'
   .section
+    .columns.is-multiline
+      - @articles.each do |article|
+        .column.is-one-third.mobile-border-bottom
+          = link_to article_path(article) do
+            = image_tag article.thumbnail_url, class: 'portfolio-img'
+          label.label.is-size-6
+            = link_to article.title, article_path(article)
+          p.is-size-7
+            = article.content.truncate(100)
+    = link_to '全ての記事を見る', blog_path(Blog.first), class: 'button is-small' if Blog.first.present?
+  .section
     .has-margin-top.has-text-centered
       h2.has-text-weight-bold.is-size-5
         = Settings.service.book_tagline
