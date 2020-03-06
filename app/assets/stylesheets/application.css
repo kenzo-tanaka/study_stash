@@ -71,10 +71,17 @@
   margin: 0 auto;
 }
 
+.top-img {
+  height: 215px;
+}
+
 .portfolio-img {
   border: solid 1px #ececec;
 }
 
+.link-color {
+  color: #484848;
+}
 .no-border {
   border: none!important;
 }
