@@ -16,7 +16,7 @@
           = link_to portfolio_path(portfolio) do
             = image_tag portfolio.ogp_url, class: 'portfolio-img top-img'
           label.is-size-6.label
-            = link_to portfolio.title, portfolio_path(portfolio), class: 'link-color'
+            = link_to portfolio.title.truncate(25), portfolio_path(portfolio), class: 'link-color'
           .tags.has-small-margin-top.is-inline
             - portfolio.tags.each do |tag|
               span.tag
