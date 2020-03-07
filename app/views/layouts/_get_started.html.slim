@@ -46,10 +46,10 @@
     ul.scroll-container data-layoutmethod="flexbox"
       - @books.each do |book|
         li.scroll-item
-          .card.no-shadow
+          .card.has-small-margin-left.has-small-border-radius
             .card-content
-              = image_tag book.image_url
-              label.label
-                = link_to book.title, book_path(book), class: 'link-color'
+              = image_tag book.image_url, class: 'top-book-img'
+              p
+                = link_to book.title.truncate(25), book_path(book)
     = link_to '全ての書籍をみる', books_path, class: 'button is-small'
     = render 'layouts/login_section'

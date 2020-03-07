@@ -76,8 +76,16 @@
   height: 215px;
 }
 
+.top-book-img {
+  height: 280px;
+}
+
 .portfolio-img {
   border: solid 1px #ececec;
+}
+
+.has-small-border-radius {
+  border-radius: 13px;
 }
 
 .link-color {
