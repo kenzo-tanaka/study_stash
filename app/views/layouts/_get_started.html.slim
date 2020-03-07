@@ -39,17 +39,21 @@
           label.label.is-size-6
             = link_to article.title, article_path(article), class: 'link-color'
     = link_to '全ての記事を見る', blog_path(Blog.first), class: 'button is-small' if Blog.first.present?
+
+.bg-fa.has-padding
+  .has-margin-top.has-text-centered
+    h2.has-text-weight-bold.is-size-5
+      = Settings.service.book_tagline
+  ul.scroll-container data-layoutmethod="flexbox"
+    - @books.each do |book|
+      li.scroll-item
+        .card.has-small-margin-left.has-small-border-radius
+          .card-content
+            = image_tag book.image_url, class: 'top-book-img'
+            p
+              = link_to book.title.truncate(13), book_path(book)
+  .has-text-centered
+    = link_to '全ての書籍をみる', books_path, class: 'button is-dark is-rounded'
+.container
   .section
-    .has-margin-top.has-text-centered
-      h2.has-text-weight-bold.is-size-5
-        = Settings.service.book_tagline
-    ul.scroll-container data-layoutmethod="flexbox"
-      - @books.each do |book|
-        li.scroll-item
-          .card.has-small-margin-left.has-small-border-radius
-            .card-content
-              = image_tag book.image_url, class: 'top-book-img'
-              p
-                = link_to book.title.truncate(25), book_path(book)
-    = link_to '全ての書籍をみる', books_path, class: 'button is-small'
     = render 'layouts/login_section'

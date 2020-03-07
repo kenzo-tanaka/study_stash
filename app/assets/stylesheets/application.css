@@ -85,7 +85,7 @@
 }
 
 .has-small-border-radius {
-  border-radius: 13px;
+  border-radius: 9px;
 }
 
 .link-color {
@@ -160,7 +160,9 @@ footer {
 .bg-fa {
   background-color: #fafafa;
 }
-
+.bg-ed {
+  background-color: #edf2f7;
+}
 .side-panel {
   border-radius: 4px;
   height: 100%;
