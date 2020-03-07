@@ -7,6 +7,13 @@
       = @article.title
   .has-small-margin-top.has-margin-bottom.has-border-bottom#content
     = markdown(@article.content).html_safe
+  - if @books.present?
+    label.label この記事で紹介された書籍
+    - @books.each do |book|
+      = link_to book_path(book), class: 'label has-text-grey' do
+        i.fas.fa-link
+        = book.title
+
   .balloon5.has-margin-top
     .faceicon
       = display_user_icon(@blog.user)
