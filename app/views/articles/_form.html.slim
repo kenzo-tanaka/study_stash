@@ -6,6 +6,7 @@
         - @article.errors.full_messages.each do |message|
           li = message
   = f.text_field :title, class: 'input', placeholder: 'title...'
+  = f.text_area :description, class: 'textarea', rows: 5, placeholder: 'description'
   = f.text_field :thumbnail_url, class: 'input', placeholder: 'https...'
   = f.text_area :content, class: 'textarea', rows: 30
   = f.collection_check_boxes :book_ids, Book.all, :id, :title
