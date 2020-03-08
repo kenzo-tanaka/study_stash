@@ -1,16 +1,48 @@
-p#notice
-  = notice
-.section.has-text-centered
-  ul.tab
-    li.active
-      button.button.is-rounded TOP
-    li
-      button.button.is-rounded 人気
-  .area.has-margin-top
-    ul.show
-      h2.has-text-weight-bold.is-size-5 今週最も積み上げた人たち👏
-      = render @users
-    ul
-      h2.has-text-weight-bold.is-size-5 最もよく積みあげられている言語👨‍💻
-      = pie_chart Schedule.pie_chart_static, suffix: 'min', donut: true , colors: ["#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8"]
+.container
+  .section
+    .has-margin-top.has-text-centered
+      h2.has-text-weight-bold.is-size-5
+        = Settings.service.portfolio_tagline
+    br
+    .columns.is-multiline
+      - @portfolios.each do |portfolio|
+        .column.is-one-third.mobile-border-bottom
+          = link_to portfolio_path(portfolio) do
+            = image_tag portfolio.ogp_url, class: 'portfolio-img top-img'
+          label.is-size-6.label
+            = link_to portfolio.title.truncate(25), portfolio_path(portfolio), class: 'link-color'
+          .tags.has-small-margin-top.is-inline
+            - portfolio.tags.each do |tag|
+              span.tag
+                = link_to tag.name, tag_path(tag)
+          - if portfolio.comments.present?
+            .is-inline.is-pulled-right
+              - portfolio.comments.map(&:user).uniq.take(3).each do |user|
+                = display_user_icon(user, size: '25x25', style: 'margin-left: -6px;')
+    = link_to '全てのポートフォリオを見る', portfolios_path, class: 'button is-rounded is-dark is-small'
+  .section
+    .has-margin-top.has-text-centered
+      h2.has-text-weight-bold.is-size-5
+        = Settings.service.article_tagline
+    br
+    .columns.is-multiline
+      - @articles.each do |article|
+        .column.is-one-third.mobile-border-bottom
+          = link_to article_path(article) do
+            = image_tag article.thumbnail_url, class: 'top-img'
+          label.label.is-size-6
+            = link_to article.title, article_path(article), class: 'link-color'
+    = link_to '全ての記事を見る', blog_path(Blog.first), class: 'button is-dark is-rounded is-small' if Blog.first.present?
 
+.bg-fa.has-padding
+  .has-margin-top.has-text-centered
+    h2.has-text-weight-bold.is-size-5
+      = Settings.service.book_tagline
+  ul.scroll-container data-layoutmethod="flexbox"
+    - @books.each do |book|
+      li.scroll-item
+        .card.has-small-margin-left.has-small-border-radius
+          .card-content
+            = image_tag book.image_url, class: 'top-book-img'
+            p.label
+              = link_to book.title.truncate(13), book_path(book)
