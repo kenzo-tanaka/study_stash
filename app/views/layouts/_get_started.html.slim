@@ -12,19 +12,21 @@
     br
     .columns.is-multiline
       - @portfolios.each do |portfolio|
-        .column.is-one-third.mobile-border-bottom
-          = link_to portfolio_path(portfolio) do
-            = image_tag portfolio.ogp_url, class: 'portfolio-img top-img'
-          label.is-size-6.label
-            = link_to portfolio.title.truncate(25), portfolio_path(portfolio), class: 'link-color'
-          .tags.has-small-margin-top.is-inline
-            - portfolio.tags.each do |tag|
-              span.tag
-                = link_to tag.name, tag_path(tag)
-          - if portfolio.comments.present?
-            .is-inline.is-pulled-right
-              - portfolio.comments.map(&:user).uniq.take(3).each do |user|
-                = display_user_icon(user, size: '25x25', style: 'margin-left: -6px;')
+        .column.is-one-third
+          .card.has-small-border-radius
+            .card-content
+              = link_to portfolio_path(portfolio) do
+                = image_tag portfolio.ogp_url, class: 'top-img'
+              label.is-size-6.label
+                = link_to portfolio.title.truncate(25), portfolio_path(portfolio), class: 'link-color'
+              .tags.has-small-margin-top.is-inline
+                - portfolio.tags.each do |tag|
+                  span.tag
+                    = link_to tag.name, tag_path(tag)
+              - if portfolio.comments.present?
+                .is-inline.is-pulled-right
+                  - portfolio.comments.map(&:user).uniq.take(3).each do |user|
+                    = display_user_icon(user, size: '25x25', style: 'margin-left: -6px;')
     = link_to '全てのポートフォリオを見る', portfolios_path, class: 'button is-rounded is-dark is-small'
   .section
     .has-margin-top.has-text-centered
@@ -33,13 +35,14 @@
     br
     .columns.is-multiline
       - @articles.each do |article|
-        .column.is-one-third.mobile-border-bottom
-          = link_to article_path(article) do
-            = image_tag article.thumbnail_url, class: 'top-img'
-          label.label.is-size-6
-            = link_to article.title, article_path(article), class: 'link-color'
+        .column.is-one-third
+          .card.has-small-border-radius
+            .card-content
+              = link_to article_path(article) do
+                = image_tag article.thumbnail_url, class: 'top-img'
+              label.label.is-size-6
+                = link_to article.title, article_path(article), class: 'link-color'
     = link_to '全ての記事を見る', blog_path(Blog.first), class: 'button is-dark is-rounded is-small' if Blog.first.present?
-
 .bg-fa.has-padding
   .has-margin-top.has-text-centered
     h2.has-text-weight-bold.is-size-5
