@@ -54,7 +54,8 @@
       li.scroll-item
         .card.has-small-margin-left.has-small-border-radius
           .card-content
-            = image_tag book.image_url, class: 'top-book-img'
+            = link_to book_path(book) do
+              = image_tag book.image_url, class: 'top-book-img'
             p.label
               = link_to book.title.truncate(13), book_path(book)
   .has-text-centered

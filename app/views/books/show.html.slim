@@ -4,14 +4,13 @@
     .column
     .column.has-text-centered
       = image_tag @book.image_url, alt: @book.title, class: 'has-shadow book-img'
-    .column.has-margin-top.mobile-centered
+    .column.has-small-margin-top.mobile-centered
       h3.has-text-weight-bold.book-title
         = @book.title
-      br
       = link_to @book.url, target: '_blank', class: 'button is-warning has-text-weight-bold' do
         i.fab.fa-amazon
         | Amazon
-      .tags.has-margin-top
+      .tags.has-small-margin-top
         - @book.tags.each do |tag|
           span.tag.has-background-white
             = tag.name
