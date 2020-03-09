@@ -34,7 +34,7 @@
             | /
       = render @comments, commentable_type: 'Portfolio', commentable_id: @portfolio.id
       = render 'comments/form', comment: @comment, commentable_type: 'Portfolio', commentable_id: @portfolio.id if user_signed_in?
-    .column.side-panel
+    .column.side-panel.bg-fa
       label.label 関連ポートフォリオ
       = render @related_portfolios
       - if @related_books.present?
