@@ -19,15 +19,15 @@
                 = link_to portfolio_path(portfolio) do
                   = image_tag portfolio.ogp_url, class: 'top-img'
                 label.is-size-6.label
-                  = link_to portfolio.title.truncate(25), portfolio_path(portfolio), class: 'link-color'
+                  = link_to portfolio.title.truncate(18), portfolio_path(portfolio), class: 'link-color'
                 .tags.has-small-margin-top.is-inline
                   - portfolio.tags.each do |tag|
                     span.tag
                       = link_to tag.name, tag_path(tag)
                 - if portfolio.comments.present?
                   .is-inline.is-pulled-right
-                    - portfolio.comments.map(&:user).uniq.take(3).each do |user|
-                      = display_user_icon(user, size: '25x25', style: 'margin-left: -6px;')
+                    = link_to portfolio_path(portfolio) do
+                      i.fas.fa-comments
       = link_to '全てのポートフォリオを見る', portfolios_path, class: 'button is-rounded is-dark is-small'
     .section
       .has-margin-top.has-text-centered
