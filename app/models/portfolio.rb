@@ -13,7 +13,7 @@
 
 class Portfolio < ApplicationRecord
   include AlgoliaSearch
-  algoliasearch do
+  algoliasearch disable_indexing: Rails.env.test? do
     attributes :title, :description
   end
 
