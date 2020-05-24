@@ -15,7 +15,7 @@ FactoryBot.define do
   factory :book do
     title { "MyString" }
     description { "MyText" }
-    url { "https://doya.life" }
-    image_url { "https://doya.life" }
+    url { "https://www.google.com/" }
+    image_url { "https://www.google.com/" }
   end
 end
