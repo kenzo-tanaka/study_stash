@@ -12,6 +12,11 @@
 #
 
 class Portfolio < ApplicationRecord
+  include AlgoliaSearch
+  algoliasearch do
+    attributes :title, :description
+  end
+
   require 'open-uri'
   has_many :portfolio_tags, dependent: :destroy
   has_many :tags, through: :portfolio_tags
