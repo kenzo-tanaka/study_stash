@@ -1,11 +1,10 @@
 - set_meta_tags title: "エンジニアポートフォリオ集"
 .section
-  nav.breadcrumb
-    ul.is-size-7
-      li
-        = link_to 'トップ', root_path
-      li
-        = link_to 'ポートフォリオ一覧', portfolios_path
+  = form_with url: portfolios_path, method: :get, local: true, autocomplete: 'off' do |f|
+    .field.has-addons
+      .control.is-expanded
+        = f.text_field :query, value: params[:query], class: 'input', autocomplete: 'off', placeholder: 'Search with ...'
+  br
   .columns.reverse-row-order
     .column.has-small-margin-left
       = render @portfolios
