@@ -12,8 +12,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - rails-demo-{{ checksum "Gemfile.lock" }}
-            - rails-demo-
+            - studystash-{{ checksum "Gemfile.lock" }}
+            - studystash-
       - run:
           name: bundlerをinstall
           command: |
@@ -25,18 +25,17 @@ jobs:
       - run:
           name: bundle installを実行
           command: bundle check || bundle install
-
       - run:
           name: postgresqlをinstall
           command: sudo apt install -y postgresql-client || true
       - save_cache:
-          key: rails-demo-{{ checksum "Gemfile.lock" }}
+          key: studystash-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
       - restore_cache:
           keys:
-            - rails-demo-yarn-{{ checksum "yarn.lock" }}
-            - rails-demo-yarn-
+            - studystash-yarn-{{ checksum "yarn.lock" }}
+            - studystash-yarn-
       - run:
           name: Yarn をinstall
           command: yarn install --cache-folder ~/.cache/yarn
