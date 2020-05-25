@@ -20,6 +20,9 @@ jobs:
             gem update --system
             gem install bundler
       - run:
+          name: プロジェクトローカルにGemをインストールするよう設定
+          command: bundle config set --local path 'vendor/bundle'
+      - run:
           name: bundle installを実行
           command: bundle check || bundle install
 
