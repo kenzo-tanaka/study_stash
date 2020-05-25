@@ -25,7 +25,6 @@ jobs:
       - run:
           name: bundle installを実行
           command: bundle check || bundle install
-
       - run:
           name: postgresqlをinstall
           command: sudo apt install -y postgresql-client || true
