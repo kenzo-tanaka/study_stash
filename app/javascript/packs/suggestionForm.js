@@ -7,7 +7,7 @@ const client = algoliasearch(algolia_application_id, algolia_search_only_api_key
 const index = client.initIndex('Portfolio');
 autocomplete('#query', {hint: false}, [
   {
-    source: autocomplete.sources.hits(index, {hitsPerPage: 1}),
+    source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
     displayKey: function (suggestion) {
       return suggestion.title
     },
