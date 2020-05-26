@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :portfolios, only: [:index, :show]
   namespace :admin do
     resources :portfolios
-    resources :books, except: :show
+    resources :books
 
     root 'portfolios#index'
   end
