@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :portfolios
     resources :books
+    resources :tags
 
     root 'portfolios#index'
   end

@@ -42,6 +42,7 @@ class BookDashboard < Administrate::BaseDashboard
   created_at
   updated_at
   url
+  tags
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -52,6 +53,7 @@ class BookDashboard < Administrate::BaseDashboard
   description
   image_url
   url
+  tags
   ].freeze
 
   # COLLECTION_FILTERS

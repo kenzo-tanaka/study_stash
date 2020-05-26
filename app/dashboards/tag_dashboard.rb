@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class PortfolioDashboard < Administrate::BaseDashboard
+class TagDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,16 +9,15 @@ class PortfolioDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     portfolio_tags: Field::HasMany,
-    tags: Field::HasMany,
-    related_links: Field::HasMany,
-    comments: Field::HasMany,
+    portfolios: Field::HasMany,
+    book_tags: Field::HasMany,
+    books: Field::HasMany,
     id: Field::Number,
-    title: Field::String,
+    name: Field::String,
     description: Field::Text,
-    url: Field::String,
-    ogp_url: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    ogp_url: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,31 +26,27 @@ class PortfolioDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  title
+  name
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
   id
-  title
+  name
   description
-  url
-  ogp_url
-  tags
   created_at
   updated_at
+  ogp_url
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  title
+  name
   description
-  url
   ogp_url
-  tags
   ].freeze
 
   # COLLECTION_FILTERS
@@ -66,10 +61,10 @@ class PortfolioDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how portfolios are displayed
+  # Overwrite this method to customize how tags are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(portfolio)
-  #   "Portfolio ##{portfolio.id}"
-  # end
+  def display_resource(tag)
+    "##{tag.name}"
+  end
 end
