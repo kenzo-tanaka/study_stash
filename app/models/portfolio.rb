@@ -15,6 +15,11 @@ class Portfolio < ApplicationRecord
   include AlgoliaSearch
   algoliasearch disable_indexing: Rails.env.test? do
     attributes :title, :description
+    attribute :tags do
+      tags.map do |t|
+        { title: t.name }
+      end
+    end
   end
 
   require 'open-uri'
