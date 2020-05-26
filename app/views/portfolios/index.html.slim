@@ -4,6 +4,8 @@
     .field.has-addons
       .control.is-expanded
         = f.text_field :query, value: params[:query], class: 'input', autocomplete: 'off', placeholder: 'Search with ...'
+      .control
+        = link_to 'リセット', portfolios_path, class: 'button'
   br
   .columns.reverse-row-order
     .column.has-small-margin-left
