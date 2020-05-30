@@ -1,7 +1,7 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: :show
   def index
-    @portfolios = Portfolio.includes(:tags, :related_links, comments: [:user]).algolia_search(params[:query], hitsPerPage: 10, page: params[:page])
+    @portfolios = Portfolio.includes(:tags, :related_links, comments: [:user])
     @tags = Tag.has_portfolios
     @books = Book.includes(comments: [:user]).latest
   end
