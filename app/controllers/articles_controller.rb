@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
+    authorize Article
     @article = Article.new
   end
 
